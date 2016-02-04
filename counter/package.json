@@ -1,7 +1,7 @@
 {
-  "name": "ng2-async",
+  "name": "ng2-ngrx-counter",
   "version": "0.0.1",
-  "description": "angular 2 async pipe examples",
+  "description": "angular 2 ngrx counter example",
   "main": "",
   "scripts": {
     "build": "npm run webpack --colors --display-error-details --display-cached",

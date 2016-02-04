@@ -1,5 +1,5 @@
 import { Component } from 'angular2/core';
-
+import {Counter} from './components/counter';
 
 @Component({
 	selector: `app`,
@@ -12,9 +12,10 @@ import { Component } from 'angular2/core';
         </div>
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
-        <router-outlet></router-outlet>
+        <counter></counter>
     </div>
 </div>
-	`
+	`,
+    directives: [Counter]
 })
 export class App {}

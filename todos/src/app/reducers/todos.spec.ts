@@ -59,7 +59,7 @@ describe('The counter reducer', () => {
         };
         const [actual] = todos(state, {type: 'TOGGLE_TODO', payload: todoToToggle});
         const expected = true;
-        expect(actual.completed).toBe(true);
+        expect(actual.completed).toBe(expected);
     });
 
 });

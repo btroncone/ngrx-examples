@@ -1,36 +1,32 @@
-import {Component, ChangeDetectionStrategy} from "angular2/core";
+import {Component} from "angular2/core";
 import {AsyncPipe} from "angular2/common";
 import {Store} from "@ngrx/store";
-import {Observable} from "rxjs/Observable";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
     selector: 'counter',
     template: `
-    <section class="post">
-        <header class="post-header">
-            <h2 class="post-title">Counter</h2>
-        </header>
-        <div class="content">
-            <button (click)="increment()">+</button>
-            <button (click)="decrement()">-</button>
-            <button (click)="incrementAsync()">Increment Async</button>
-            <h3>{{counter$ | async}}</h3>
-        </div>
-    </section>
+    <div class="content">
+        <button (click)="increment()">+</button>
+        <button (click)="decrement()">-</button>
+        <button (click)="incrementIfOdd()">Increment If Odd</button>
+        <button (click)="incrementAsync()">Increment Async</button>
+        <h3>{{count}}</h3>
+    </div>
     `,
-    pipes: [AsyncPipe],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    pipes: [AsyncPipe]
 })
 export class Counter{
-    counter$: Observable<number>;
+    counter$: Subscription<number>;
+    count: number;
 
     constructor(
         private store : Store<number>
-    ){}
-
-    ngOnInit(){
+    ){
+        //For the most basic example I am not using async pipe
         this.counter$ = this.store
-            .select('counter');
+            .select('counter')
+            .subscribe((value : number) => this.count = value);
     }
 
     increment(){
@@ -45,5 +41,11 @@ export class Counter{
         setTimeout(() => {
             this.store.dispatch({type: 'INCREMENT'});
         }, 1000);
+    }
+
+    incrementIfOdd(){
+        if(this.count % 2 !== 0){
+            this.store.dispatch({type: 'INCREMENT'});
+        }
     }
 }

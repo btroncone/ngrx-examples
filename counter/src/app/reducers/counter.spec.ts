@@ -1,7 +1,7 @@
 import {counter} from "./counter";
 
 describe('The counter reducer', () => {
-    it('should return initial state when no valid actions have been made', () => {
+    it('should return current state when an invalid action is dispatched', () => {
         const actual = counter(0, {type: 'INVALID_ACTION'});
         const expected = 0;
         expect(actual).toBe(expected);

@@ -23,7 +23,8 @@ export class Counter{
     constructor(
         private store : Store<number>
     ){
-        //For the most basic example I am not using async pipe
+        //For the first example I am not using async pipe
+        //All future examples will utilize async pipe as it's the most efficient/recommended approach
         this.counter$ = this.store
             .select('counter')
             .subscribe((value : number) => this.count = value);

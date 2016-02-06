@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Todos} from './components/todos';
+import {Todos} from 'todos/todos';
 
 @Component({
 	selector: `app`,

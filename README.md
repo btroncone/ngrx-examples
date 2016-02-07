@@ -26,7 +26,15 @@ To get started:
 
 ####Counter
 Basic counter example utilizing ngrx store within component.
-####Todo
+####Todos
 Coming soon!
-####Todo Async
+####TodoMVC
+Coming soon!
+####Todos With Undo
+Coming soon!
+####Async
+Coming soon!
+####Shopping Cart
+Basic counter example utilizing ngrx store within component.
+####Real World
 Coming soon!

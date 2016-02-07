@@ -1,12 +1,10 @@
 import {Injectable} from "angular2/core";
-import {Store, Action} from "@ngrx/store";
+import {Store} from "@ngrx/store";
 import {SET_VISIBILITY_FILTER} from "../reducers/visibility-filter";
-import {BehaviorSubject} from "rxjs/Rx";
 
 
 @Injectable()
 export class VisibilityFilterActions{
-    private actions$: BehaviorSubject<Action> = new BehaviorSubject({type: null, payload: null});
 
     constructor(private store : Store<any>){}
 

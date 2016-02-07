@@ -28,8 +28,6 @@ const todo : Reducer<Todo> = (state : Todo, action: Action) => {
         default:
             return state;
     }
-
-
 };
 
 export const todos : Reducer<Todo[]> = (state : Todo[] = [], action: Action) => {

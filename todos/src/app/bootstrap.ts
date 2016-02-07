@@ -1,20 +1,16 @@
 import {bootstrap} from 'angular2/platform/browser';
 import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
-import {App} from './app';
+import {TodoApp} from './todo-app';
 import {provideStore} from "@ngrx/store";
-import {todos} from "./reducers/todos";
-import {visibilityFilter} from "./reducers/visibility-filter";
-import {TodosActions} from "./actions/todos.actions";
-import {VisibilityFilterActions} from "./actions/visibility-filter.actions";
-import {TodosViewModel} from "./todos/todos-viewmodel";
+import {APP_REDUCERS} from "./reducers/reducers";
+import {APP_ACTIONS} from "./actions/actions";
+
 
 export function main() {
-  return bootstrap(App, [
+  return bootstrap(TodoApp, [
       ELEMENT_PROBE_PROVIDERS,
-      TodosActions,
-      VisibilityFilterActions,
-      TodosViewModel,
-      provideStore({todos, visibilityFilter})
+      APP_ACTIONS,
+      provideStore(APP_REDUCERS)
   ])
   .catch(err => console.error(err));
 }

@@ -5,7 +5,7 @@ import {Todo} from "../reducers/todos";
 @Component({
     selector: 'todo-item',
     template: `
-    <li>
+    <li class="margin-t-20">
         <strong [class.complete]="todo.completed">{{todo.text}}</strong>
         <button class="pure-button pure-button-primary"
             (click)="toggleTodo.emit(todo)">

@@ -1,4 +1,6 @@
 import {todos, Todo} from "./todos";
+//had issue with jasmine typing conflicts, this is temporary workaround
+declare var it, expect, describe, toBe;
 
 describe('The counter reducer', () => {
     it('should return current state when no valid actions have been made', () => {

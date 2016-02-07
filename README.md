@@ -8,11 +8,11 @@ These examples illustrate how to utilize NgRx store within your Angular 2 applic
 
 ###Build
 
-Project builds are a stripped down version of Angular class Webpack starter, an exceptional Angular 2 seed project.
+Project builds are a stripped down version of [Angular Class Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter), an exceptional Angular 2 seed project.
 Tests can be executed with either WallabyJS or Karma (soon!). 
 
 ###Additional Resources
-Additional Angular 2 + NgRx Articles and Resources
+Additional Angular 2 + NgRx Articles and Resources:
 
 * [Build a Better Angular 2 Application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/)
 * [NgRx Sample Project utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example)

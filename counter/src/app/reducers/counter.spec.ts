@@ -1,4 +1,6 @@
 import {counter} from "./counter";
+//had issue with jasmine typing conflicts, this is temporary workaround
+declare var it, expect, describe, toBe;
 
 describe('The counter reducer', () => {
     it('should return current state when an invalid action is dispatched', () => {

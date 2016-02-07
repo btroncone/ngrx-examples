@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/btroncone/ng2-role-decorator"
+    "url": "https://github.com/btroncone/ngrx-examples"
   },
   "devDependencies": {
     "compression-webpack-plugin": "^0.3.0",

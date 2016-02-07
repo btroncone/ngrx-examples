@@ -1,4 +1,5 @@
 import {todos, Todo} from "./todos";
+import {it, expect, describe} from "angular2/testing";
 
 describe('The counter reducer', () => {
     it('should return current state when no valid actions have been made', () => {

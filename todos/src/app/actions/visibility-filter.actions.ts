@@ -8,7 +8,7 @@ import {BehaviorSubject} from "rxjs/Rx";
 export class VisibilityFilterActions{
     private actions$: BehaviorSubject<Action> = new BehaviorSubject({type: null, payload: null});
 
-    constructor(private store : Store){}
+    constructor(private store : Store<any>){}
 
     setVisibilityFilter(filter: string){
         this.store.dispatch({type: SET_VISIBILITY_FILTER, payload: filter});

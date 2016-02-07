@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Todos} from 'todos/todos';
+import {TodoList} from "./todos/todo-list";
 
 @Component({
 	selector: `app`,
@@ -12,10 +12,10 @@ import {Todos} from 'todos/todos';
 			</div>
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
-			<todos></todos>
+			<todo-list></todo-list>
 		</div>
 	</div>
 	`,
-    directives: [Todos]
+    directives: [TodoList]
 })
 export class App {}

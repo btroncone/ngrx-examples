@@ -1,7 +1,7 @@
 import {Component} from "angular2/core";
 import {AsyncPipe} from "angular2/common";
 import {Store} from "@ngrx/store";
-import {Subscription} from "rxjs/Subscription";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'counter',
@@ -9,25 +9,20 @@ import {Subscription} from "rxjs/Subscription";
     <div class="content">
         <button (click)="increment()">+</button>
         <button (click)="decrement()">-</button>
-        <button (click)="incrementIfOdd()">Increment If Odd</button>
         <button (click)="incrementAsync()">Increment Async</button>
-        <h3>{{count}}</h3>
+        <button (click)="decrementAsync()">Decrement Async</button>
+        <h3>{{count | async}}</h3>
     </div>
     `,
     pipes: [AsyncPipe]
 })
 export class Counter{
-    counter$: Subscription<number>;
-    count: number;
+    counter$: Observable<number>;
 
     constructor(
         private store : Store<number>
     ){
-        //For the first example I am not using async pipe
-        //All future examples will utilize async pipe as it's the most efficient/recommended approach
-        this.counter$ = this.store
-            .select('counter')
-            .subscribe((value : number) => this.count = value);
+        this.counter$ = this.store.select('counter')
     }
 
     increment(){
@@ -44,9 +39,9 @@ export class Counter{
         }, 1000);
     }
 
-    incrementIfOdd(){
-        if(this.count % 2 !== 0){
-            this.store.dispatch({type: 'INCREMENT'});
-        }
+    decrementAsync(){
+        setTimeout(() => {
+            this.store.dispatch({type: 'DECREMENT'});
+        }, 1000);
     }
 }

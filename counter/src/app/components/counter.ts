@@ -11,7 +11,7 @@ import {Observable} from "rxjs/Observable";
         <button (click)="decrement()">-</button>
         <button (click)="incrementAsync()">Increment Async</button>
         <button (click)="decrementAsync()">Decrement Async</button>
-        <h3>{{count | async}}</h3>
+        <h3>{{counter$ | async}}</h3>
     </div>
     `,
     pipes: [AsyncPipe]

@@ -1,15 +1,15 @@
-# NgRx Store Examples : Based On Official Redux Examples
+# NgRx Store Examples
 
-[Redux Examples](https://github.com/rackt/redux/tree/master/examples) written using Angular 2 + NgRx store.
+Angular 2 + NgRx store examples, inspired by official [Redux examples](https://github.com/rackt/redux/tree/master/examples).
 
 ###Goal
 
-These examples illustrate how to utilize NgRx store within your Angular 2 application. Projects are current based off official Redux examples, ported to Angular 2 and NgRx. This repository will be actively maintained and updated as new tools (dev tools?) and functionality (middleware?) become available and best practices are established. Feel free to contribute any examples or resources of your own the community may find useful!
+These examples illustrate how to utilize NgRx within your Angular 2 application. This repository will be actively maintained and updated as new tools (dev tools?) and functionality (middleware?) become available and best practices are established. Feel free to contribute any examples or resources the community may find useful!
 
 ###Build
 
 Project builds are a stripped down version of [Angular Class Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter), an exceptional Angular 2 seed project.
-Tests can be executed with either WallabyJS or Karma (soon!). 
+Tests can be executed with either [WallabyJS](http://wallabyjs.com/) or Karma (soon!). 
 
 ###Additional Resources
 Additional Angular 2 + NgRx Articles and Resources:
@@ -17,7 +17,7 @@ Additional Angular 2 + NgRx Articles and Resources:
 * [Build a Better Angular 2 Application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/)
 * [NgRx Sample Project utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example)
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example)
-* [Reactive Data Flow in Angular 2 - Not NgRx but excellent read](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/)
+* [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/) (not ngrx but excellent read regarding reactive data flow and MVI pattern)
 
 
 

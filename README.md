@@ -18,6 +18,7 @@ Additional Angular 2 + NgRx Articles and Resources:
 * [NgRx Sample Project utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example)
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example)
 * [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/) (not ngrx but excellent read regarding reactive data flow and MVI pattern)
+* [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Plunker Example by Rob Wormald
 
 
 

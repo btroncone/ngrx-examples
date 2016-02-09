@@ -1,4 +1,4 @@
-# NgRx Store Examples
+# NgRx Examples
 
 [Angular 2](https://angular.io/) + [ngrx](https://github.com/ngrx) examples, inspired by official [redux examples](https://github.com/rackt/redux/tree/master/examples).
 

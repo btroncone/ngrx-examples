@@ -9,30 +9,59 @@ import {
 } from "../reducers/reddit";
 import {Observable} from "rxjs/Observable";
 import {BehaviorSubject} from "rxjs/Rx";
+import {Reddit} from "../services/reddit";
 
 @Injectable()
-export class TodosActions{
+export class RedditActions{
     private actions$: BehaviorSubject<Action> = new BehaviorSubject({type: null, payload: null});
-    private id : number = 1;
-    constructor(private store : Store<any>){
-        const addTodo = this.actions$
-            .filter((action : Action) => action.type === ADD_TODO);
+    private postsByReddit$ : Observable;
 
-        const toggleTodo = this.actions$
-            .filter((action : Action) => action.type === TOGGLE_TODO);
+    constructor(
+        private store : Store<any>,
+        private reddit : Reddit
+    ){
+        this.postsByReddit$ = store.select('postsByReddit');
+
+        const selectReddit = this.actions$
+            .filter((action : Action) => action.type === SELECT_REDDIT);
+
+        const invalidateReddit = this.actions$
+            .filter((action : Action) => action.type === INVALIDATE_REDDIT);
+
+        const fetchPostsIfNeeded = Observable.combineLatest(
+                this.actions$,
+                this.postsByReddit$,
+                (action : Action, postsByReddit) => ({action, postsByReddit}))
+            .filter(({action, postsByReddit}) => action.type === REQUEST_POSTS && this.shouldFetchPosts(postsByReddit, action.payload))
+            .mergeMap(({action : Action}) => this.reddit.fetchPosts(action.payload),
+                (action, payload) => ({type: RECEIVE_POSTS, payload })
+            );
 
         Observable
-            .merge(addTodo, toggleTodo)
+            .merge(selectReddit, invalidateReddit, fetchPostsIfNeeded)
             .subscribe((action : Action) => store.dispatch(action));
-
     }
 
-    addTodo(text: string){
-        this.actions$.next({type: ADD_TODO, payload: {id: this.id, text, completed: false}});
-        this.id++;
+    selectReddit(reddit: string){
+        this.actions$.next({type: SELECT_REDDIT, payload: reddit});
     }
 
-    toggleTodo(todo : Todo){
-        this.actions$.next({type: TOGGLE_TODO, payload: todo});
+    invalidateReddit(reddit : string){
+        this.actions$.next({type: INVALIDATE_REDDIT, payload: reddit});
+    }
+
+    fetchPostsIfNeeded(reddit: string){
+        this.actions$.next({type: REQUEST_POSTS, payload: reddit});
+    }
+
+    private shouldFetchPosts(state, reddit : string){
+        const posts = state.postsByReddit[reddit];
+        if (!posts) {
+            return true
+        }
+        if (posts.isFetching) {
+            return false
+        }
+        return posts.didInvalidate
     }
 }

@@ -1,4 +1,8 @@
 import {Component} from 'angular2/core';
+import {RedditViewModel} from "./components/reddit-viewmodel";
+import {RedditActions} from "./actions/reddit.actions";
+import {Posts} from "./reducers/reddit";
+import {RedditPosts} from "./components/reddit-posts";
 
 @Component({
 	selector: `async-app`,
@@ -11,10 +15,20 @@ import {Component} from 'angular2/core';
 			</div>
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
+			<reddit-posts></reddit-posts>
 		</div>
 	</div>
-	`
+	`,
+	providers: [RedditViewModel],
+	directives: [RedditPosts]
 })
 export class AsyncApp {
-	constructor(){}
+	vm : Posts;
+
+	constructor(
+		private redditActions : RedditActions,
+		private redditViewModel : RedditViewModel
+	){
+		this.redditViewModel.viewModel$.subscribe(vm => this.vm = vm);
+	}
 }

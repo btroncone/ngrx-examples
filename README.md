@@ -26,6 +26,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald
 * [NgRx Dev Tools First Look](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) - Rob Wormald
+* [An example implementation of ngrx-store with async actions](https://github.com/thaiat/ngrx-store-example) - Avi Haiat
 
 ##Getting Started
 ```bash

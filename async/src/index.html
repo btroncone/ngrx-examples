@@ -21,9 +21,9 @@
 </head>
 
 <body>
-  <async-app>
+  <app>
     Loading...
-  </async-app>
+  </app>
   {% if (o.webpackConfig.metadata.ENV === 'development') { %}
   <!-- Webpack Dev Server reload -->
   <script src="http://{%= o.webpackConfig.metadata.host %}:{%= o.webpackConfig.metadata.port %}/webpack-dev-server.js"></script>

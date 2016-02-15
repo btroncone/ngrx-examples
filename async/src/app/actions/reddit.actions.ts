@@ -1,14 +1,15 @@
 import {Injectable} from "angular2/core";
 import {Store, Action} from "@ngrx/store";
+import {Observable} from "rxjs/Observable";
+import {BehaviorSubject} from "rxjs/Rx";
+import {Reddit} from "../services/reddit";
 import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     INVALIDATE_REDDIT,
     SELECT_REDDIT
 } from "../reducers/reddit";
-import {Observable} from "rxjs/Observable";
-import {BehaviorSubject} from "rxjs/Rx";
-import {Reddit} from "../services/reddit";
+
 
 @Injectable()
 export class RedditActions{
@@ -50,7 +51,8 @@ export class RedditActions{
     }
 
     invalidateReddit(reddit : string){
-        this.actions$.next({type: INVALIDATE_REDDIT, payload: reddit});
+        this.actions$.next({type: INVALIDATE_REDDIT, payload: {reddit} });
+        this.selectReddit(reddit);
     }
 
     private shouldFetchPosts(postsByReddit, reddit){

@@ -3,8 +3,8 @@ import {Reducer, Action} from "@ngrx/store";
 export interface RedditPosts {
     isFetching: boolean,
     didInvalidate?: boolean,
-    posts: [any],
-    lastUpdated?: string | Date,
+    posts: Array<any>,
+    lastUpdated?: Date,
     selectedReddit?: string
 }
 

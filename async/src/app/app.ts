@@ -1,8 +1,9 @@
-import { Component } from 'angular2/core';
+import {Component} from 'angular2/core';
 import {RedditViewModel, RedditVm} from "./components/reddit-viewmodel";
 import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
+import {DatePipe} from "angular2/common";
 
 @Component({
 	selector: `app`,
@@ -16,9 +17,14 @@ import {RedditList} from "./components/reddit-list";
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
 		<h2>Currently Displaying: {{vm.selectedReddit}}</h2>
+		<h5>Last Updated: {{vm.lastUpdated | date:'mediumTime'}}</h5>
 			<reddit-select
 				(redditSelect)="redditActions.selectReddit($event)">
 			</reddit-select>
+			<button
+				(click)="redditActions.invalidateReddit(vm.selectedReddit)">
+				Refresh
+			</button>
 			<reddit-list
 				[posts]="vm.posts"
 				[isFetching]="vm.isFetching">
@@ -27,7 +33,8 @@ import {RedditList} from "./components/reddit-list";
 	</div>
 	`,
     directives: [RedditList, RedditSelect],
-	providers: [RedditViewModel]
+	providers: [RedditViewModel],
+	pipes: [DatePipe]
 })
 export class App {
 	vm : RedditVm;

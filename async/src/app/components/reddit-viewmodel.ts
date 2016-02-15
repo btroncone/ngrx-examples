@@ -21,7 +21,7 @@ export class RedditViewModel{
                     isFetching,
                     lastUpdated,
                     posts
-                } = postsByReddit[selectedReddit] || {
+                } : RedditPosts = postsByReddit[selectedReddit] || {
                     isFetching: true,
                     posts: []
                 };

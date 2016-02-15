@@ -6,7 +6,7 @@ import {RedditList} from "./components/reddit-list";
 import {DatePipe} from "angular2/common";
 
 @Component({
-	selector: `app`,
+	selector: `async-app`,
 	template: `
 	<div id="layout" class="pure-g">
 		<div class="sidebar pure-u-1 pure-u-md-1-4">
@@ -16,18 +16,18 @@ import {DatePipe} from "angular2/common";
 			</div>
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
-		<h2>Currently Displaying: {{vm.selectedReddit}}</h2>
-		<h5>Last Updated: {{vm.lastUpdated | date:'mediumTime'}}</h5>
+		<h2>Currently Displaying: {{viewModel.selectedReddit}}</h2>
+		<h5>Last Updated: {{viewModel.lastUpdated | date:'mediumTime'}}</h5>
 			<reddit-select
 				(redditSelect)="redditActions.selectReddit($event)">
 			</reddit-select>
 			<button
-				(click)="redditActions.invalidateReddit(vm.selectedReddit)">
+				(click)="redditActions.invalidateReddit(viewModel.selectedReddit)">
 				Refresh
 			</button>
 			<reddit-list
-				[posts]="vm.posts"
-				[isFetching]="vm.isFetching">
+				[posts]="viewModel.posts"
+				[isFetching]="viewModel.isFetching">
 			</reddit-list>
 		</div>
 	</div>
@@ -36,13 +36,13 @@ import {DatePipe} from "angular2/common";
 	providers: [RedditViewModel],
 	pipes: [DatePipe]
 })
-export class App {
-	vm : RedditVm;
+export class AsyncApp {
+	viewModel : RedditVm;
 	constructor(
 		private redditViewModel: RedditViewModel,
 		private redditActions: RedditActions
 	){
-		this.redditViewModel.viewModel$.subscribe(viewModel => this.vm = viewModel)
+		this.redditViewModel.viewModel$.subscribe(viewModel => this.viewModel = viewModel)
 	}
 
 }

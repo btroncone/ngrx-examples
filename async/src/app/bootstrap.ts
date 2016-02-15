@@ -1,6 +1,6 @@
 import {bootstrap} from 'angular2/platform/browser';
 import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
-import {App} from './app';
+import {AsyncApp} from './async-app';
 import {provideStore} from "@ngrx/store";
 import {selectedReddit, postsByReddit} from "./reducers/reddit";
 import {RedditActions} from "./actions/reddit.actions";
@@ -8,7 +8,7 @@ import {Reddit} from "./services/reddit";
 import {HTTP_PROVIDERS} from "angular2/http";
 
 export function main() {
-  return bootstrap(App, [
+  return bootstrap(AsyncApp, [
       ELEMENT_PROBE_PROVIDERS,
       HTTP_PROVIDERS,
       provideStore({selectedReddit, postsByReddit}),

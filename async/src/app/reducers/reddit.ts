@@ -1,10 +1,11 @@
 import {Reducer, Action} from "@ngrx/store";
 
-export interface Posts {
+export interface RedditPosts {
     isFetching: boolean,
-    didInvalidate: boolean,
+    didInvalidate?: boolean,
     posts: [any],
-    lastUpdated?: string | Date
+    lastUpdated?: string | Date,
+    selectedReddit?: string
 }
 
 export const SELECT_REDDIT = 'SELECT_REDDIT';
@@ -21,7 +22,7 @@ export const selectedReddit : Reducer<string> = (state : string = 'Angular 2', a
     }
 };
 
-const posts : Reducer<Posts> = (state : Posts = {
+const posts : Reducer<RedditPosts> = (state : RedditPosts = {
     isFetching: false,
     didInvalidate: false,
     posts: []
@@ -32,13 +33,11 @@ const posts : Reducer<Posts> = (state : Posts = {
               didInvalidate: true
           });
       case REQUEST_POSTS:
-          debugger;
           return Object.assign({}, state, {
               isFetching: true,
               didInvalidate: false
           });
       case RECEIVE_POSTS:
-          debugger;
           return Object.assign({}, state, {
               isFetching: false,
               didInvalidate: false,
@@ -50,12 +49,11 @@ const posts : Reducer<Posts> = (state : Posts = {
   }
 };
 
-export const postsByReddit : Reducer<{}> = (state: {} = {}, action : Action) => {
+export const postsByReddit : Reducer<RedditPosts> = (state: {} = {}, action : Action) => {
     switch (action.type) {
         case INVALIDATE_REDDIT:
         case RECEIVE_POSTS:
         case REQUEST_POSTS:
-            debugger;
             return Object.assign({}, state, {
                 [action.payload.reddit]: posts(state[action.payload.reddit], action)
             });

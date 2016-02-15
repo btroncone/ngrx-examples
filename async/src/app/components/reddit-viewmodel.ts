@@ -1,11 +1,15 @@
 import {Injectable} from "angular2/core";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
-import {Posts, REQUEST_POSTS} from "../reducers/reddit";
+import {RedditPosts} from "../reducers/reddit";
+
+export interface RedditVm extends RedditPosts{
+    selectedReddit: string
+}
 
 @Injectable()
 export class RedditViewModel{
-    public viewModel$ : Observable<Posts>;
+    public viewModel$ : Observable<RedditVm>;
     constructor(
         private store: Store<any>
     ){
@@ -13,7 +17,6 @@ export class RedditViewModel{
             store.select('postsByReddit'),
             store.select('selectedReddit'),
             (postsByReddit, selectedReddit) => {
-                debugger;
                 const {
                     isFetching,
                     lastUpdated,
@@ -23,7 +26,7 @@ export class RedditViewModel{
                     posts: []
                 };
 
-                return{
+                return {
                     selectedReddit,
                     posts,
                     isFetching,

@@ -1,9 +1,8 @@
 import { Component } from 'angular2/core';
-import {RedditPosts} from "./components/reddit-posts";
-import {RedditViewModel} from "./components/reddit-viewmodel";
-import {Observable} from "rxjs/Observable";
+import {RedditViewModel, RedditVm} from "./components/reddit-viewmodel";
 import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
+import {RedditList} from "./components/reddit-list";
 
 @Component({
 	selector: `app`,
@@ -16,26 +15,27 @@ import {RedditSelect} from "./components/reddit-select";
 			</div>
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
-		<h2>{{vm.isFetching}} {{vm.selectedReddit}}</h2>
+		<h2>Currently Displaying: {{vm.selectedReddit}}</h2>
 			<reddit-select
 				(redditSelect)="redditActions.selectReddit($event)">
 			</reddit-select>
-			<reddit-posts
-				[posts]="vm.posts">
-			</reddit-posts>
+			<reddit-list
+				[posts]="vm.posts"
+				[isFetching]="vm.isFetching">
+			</reddit-list>
 		</div>
 	</div>
 	`,
-    directives: [RedditPosts, RedditSelect],
+    directives: [RedditList, RedditSelect],
 	providers: [RedditViewModel]
 })
 export class App {
-	vm;
+	vm : RedditVm;
 	constructor(
 		private redditViewModel: RedditViewModel,
 		private redditActions: RedditActions
 	){
-		this.redditViewModel.viewModel$.subscribe(vm => {this.vm = vm})
+		this.redditViewModel.viewModel$.subscribe(viewModel => this.vm = viewModel)
 	}
 
 }

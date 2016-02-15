@@ -6,7 +6,6 @@ export class Reddit{
     constructor(private http : Http){}
 
     fetchPosts(reddit : string){
-        debugger;
         return this.http
             .get(`https://www.reddit.com/r/${reddit.replace(' ', '')}.json`)
             .map(response => response.json());

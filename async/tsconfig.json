@@ -8,7 +8,8 @@
     "sourceMap": true
   },
   "exclude":[
-    "node_modules"
+    "node_modules",
+    "src/app/reducers/reddit.spec.ts"
   ],
   "compileOnSave": false
 }

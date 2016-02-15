@@ -8,7 +8,7 @@ import {RedditPosts} from "../reducers/reddit";
             <strong [hidden]="!isFetching">Loading...</strong>
             <ul>
                 <li *ngFor="#post of posts">
-                    {{post.title}}
+                    <a [href]="post.url">{{post.title}}</a>
                 </li>
             </ul>
         </div>

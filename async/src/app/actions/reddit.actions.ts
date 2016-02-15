@@ -14,7 +14,6 @@ import {
 @Injectable()
 export class RedditActions{
     private actions$: BehaviorSubject<Action> = new BehaviorSubject({type: null, payload: null});
-    private posts$: Observable<any>;
 
     constructor(
         private store : Store<any>,
@@ -65,6 +64,4 @@ export class RedditActions{
         }
         return posts.didInvalidate;
     }
-
-
 }

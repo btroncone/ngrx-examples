@@ -3,11 +3,17 @@ import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 import {App} from './app';
 import {provideStore} from "@ngrx/store";
 import {selectedReddit, postsByReddit} from "./reducers/reddit";
+import {RedditActions} from "./actions/reddit.actions";
+import {Reddit} from "./services/reddit";
+import {HTTP_PROVIDERS} from "angular2/http";
 
 export function main() {
   return bootstrap(App, [
       ELEMENT_PROBE_PROVIDERS,
-      provideStore({selectedReddit, postsByReddit})
+      HTTP_PROVIDERS,
+      provideStore({selectedReddit, postsByReddit}),
+      Reddit,
+      RedditActions
   ])
   .catch(err => console.error(err));
 }

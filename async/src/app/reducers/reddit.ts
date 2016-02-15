@@ -3,7 +3,7 @@ import {Reducer, Action} from "@ngrx/store";
 export interface Posts {
     isFetching: boolean,
     didInvalidate: boolean,
-    items: [any],
+    posts: [any],
     lastUpdated?: string | Date
 }
 
@@ -24,7 +24,7 @@ export const selectedReddit : Reducer<string> = (state : string = 'Angular 2', a
 const posts : Reducer<Posts> = (state : Posts = {
     isFetching: false,
     didInvalidate: false,
-    items: []
+    posts: []
 }, action: Action) => {
   switch(action.type) {
       case INVALIDATE_REDDIT:
@@ -32,16 +32,18 @@ const posts : Reducer<Posts> = (state : Posts = {
               didInvalidate: true
           });
       case REQUEST_POSTS:
+          debugger;
           return Object.assign({}, state, {
               isFetching: true,
               didInvalidate: false
           });
       case RECEIVE_POSTS:
+          debugger;
           return Object.assign({}, state, {
               isFetching: false,
               didInvalidate: false,
-              items: action.payload.posts,
-              lastUpdated: action.payload.receivedAt
+              posts: action.payload.data.children.map(child => child.data),
+              lastUpdated: Date.now()
           });
       default:
           return state;
@@ -53,11 +55,12 @@ export const postsByReddit : Reducer<{}> = (state: {} = {}, action : Action) => 
         case INVALIDATE_REDDIT:
         case RECEIVE_POSTS:
         case REQUEST_POSTS:
+            debugger;
             return Object.assign({}, state, {
                 [action.payload.reddit]: posts(state[action.payload.reddit], action)
             });
         default:
-            return state
+            return state;
     }
 };
 

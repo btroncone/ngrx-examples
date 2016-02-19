@@ -54,8 +54,8 @@ Project builds are a stripped down version of [Angular Class Webpack Starter](ht
 
 * Counter ([source](https://github.com/btroncone/ngrx-examples/tree/master/counter))
 * Todos ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos))
-* Aync - ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
-* Todos with Undo - In Progress!
+* Aync ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
+* Todos with Undo/Redo ([based off example](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview)) ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos-undo-redo))
 * Shopping Cart - Coming soon!
 * Real World - Coming soon!
 * Much more to come!

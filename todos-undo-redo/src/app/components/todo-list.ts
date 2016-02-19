@@ -8,8 +8,8 @@ import {Todo} from "../reducers/todos";
         <button class="pure-button" (click)="visibility.emit('SHOW_ALL')">All</button>
         <button class="pure-button" (click)="visibility.emit('SHOW_COMPLETED')">Completed</button>
         <button class="pure-button" (click)="visibility.emit('SHOW_ACTIVE')">Active</button>
-        <button class="pure-button" (click)="undo.emit()">Completed</button>
-        <button class="pure-button" (click)="redo.emit()">Active</button>
+        <button class="pure-button" (click)="undo.emit()">Undo</button>
+        <button class="pure-button" (click)="redo.emit()">Redo</button>
         <div class="pure-control-group">
             <label for="name">Todo Description:</label>
             <input #todo type="text" placeholder="Enter Todo...">

@@ -18,11 +18,11 @@ export class TodosViewModel{
         this.viewModel$ = Observable.combineLatest(
             store.select('todos'),
             store.select('visibilityFilter'),
-            (todos, visibilityFilter) => {
+            ({past = [], present = [], future = []}, visibilityFilter) => {
                 return {
-                    todos: this.visibleTodos(todos, visibilityFilter),
-                    totalTodos: todos.length,
-                    completedTodos: todos.filter((todo : Todo) => todo.completed).length
+                    todos: this.visibleTodos(present, visibilityFilter),
+                    totalTodos: present.length,
+                    completedTodos: present.filter((todo : Todo) => todo.completed).length
                 }
             }
         );

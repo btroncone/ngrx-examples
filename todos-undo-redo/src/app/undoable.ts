@@ -2,7 +2,7 @@ import {Reducer, Action} from "@ngrx/store";
 
 export interface UndoableState{
     past: any[],
-    present: Reducer,
+    present: Reducer<any>,
     future: any[]
 }
 
@@ -10,7 +10,7 @@ export const UNDO = 'UNDO';
 export const REDO = 'REDO';
 
 //based on Rob Wormald's example http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview
-export function undoable(reducer : Reducer) {
+export function undoable(reducer : Reducer<any>) {
     // Call the reducer with empty action to populate the initial state
     const initialState : UndoableState = {
         past: [],
@@ -21,8 +21,8 @@ export function undoable(reducer : Reducer) {
     // Return a reducer that handles undo and redo
     return function (state = initialState, action : Action) {
         const { past, present, future } = state;
-
         switch (action.type) {
+
             case 'UNDO':
                 const previous = past[past.length - 1];
                 const newPast = past.slice(0, past.length - 1);

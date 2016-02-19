@@ -1,7 +1,7 @@
 {
-  "name": "ng2-ngrx-todos",
+  "name": "ng2-ngrx-todos-undo-redo",
   "version": "0.0.1",
-  "description": "angular 2 ngrx todos example",
+  "description": "angular 2 ngrx todos-undo-redo example",
   "main": "",
   "scripts": {
     "build": "npm run webpack --colors --display-error-details --display-cached",

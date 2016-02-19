@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@ngrx/store": "^1.2.1",
-    "angular2": "^2.0.0-beta.3",
+    "angular2": "2.0.0-beta.3",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
     "es7-reflect-metadata": "1.5.5",

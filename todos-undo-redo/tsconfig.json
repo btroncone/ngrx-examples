@@ -8,7 +8,15 @@
     "sourceMap": true
   },
   "exclude":[
-    "node_modules"
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
   ],
-  "compileOnSave": false
+  "filesGlob": [
+    "./src/**/*.ts",
+    "!./node_modules/**/*.ts",
+    "typings/browser.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

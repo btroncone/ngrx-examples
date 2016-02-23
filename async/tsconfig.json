@@ -9,7 +9,15 @@
   },
   "exclude":[
     "node_modules",
+    "typings/main.d.ts",
+    "typings/main",
     "src/app/reducers/reddit.spec.ts"
   ],
-  "compileOnSave": false
+  "filesGlob": [
+    "./src/**/*.ts",
+    "!./node_modules/**/*.ts",
+    "typings/browser.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

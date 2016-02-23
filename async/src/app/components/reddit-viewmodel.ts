@@ -16,7 +16,7 @@ export class RedditViewModel{
         this.viewModel$ = Observable.combineLatest(
             store.select('postsByReddit'),
             store.select('selectedReddit'),
-            (postsByReddit, selectedReddit) => {
+            (postsByReddit : Array<any>, selectedReddit : string) => {
                 const {
                     isFetching,
                     lastUpdated,

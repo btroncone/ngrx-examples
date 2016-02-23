@@ -18,7 +18,7 @@ export class TodosViewModel{
         this.viewModel$ = Observable.combineLatest(
             store.select('todos'),
             store.select('visibilityFilter'),
-            (todos, visibilityFilter) => {
+            (todos : Array<Todo>, visibilityFilter : string) => {
                 return {
                     todos: this.visibleTodos(todos, visibilityFilter),
                     totalTodos: todos.length,
@@ -28,7 +28,7 @@ export class TodosViewModel{
         );
     }
 
-    private visibleTodos(todos : Todo[], filter: string) : Todo[]{
+    private visibleTodos(todos : Array<Todo>, filter: string) : Todo[]{
         switch (filter) {
             case 'SHOW_ALL':
                 return todos;

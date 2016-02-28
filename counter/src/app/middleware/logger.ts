@@ -16,6 +16,3 @@ export const BASIC_LOGGER_MIDDLEWARE = [
     usePreMiddleware(actionLog),
     usePostMiddleware(stateLog)
 ];
-
-
-

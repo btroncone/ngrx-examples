@@ -4,7 +4,7 @@
 
 ##Goal
 
-These examples illustrate how to utilize ngrx within an Angular 2 application. This repository will be actively maintained and updated as new tools (dev tools?) and functionality (middleware?) become available and best practices are established.
+These examples illustrate how to utilize ngrx within an Angular 2 application. This repository will be actively maintained and updated as new tools (dev tools?) and functionality become available and best practices are established.
 
 ##Contributions
 
@@ -62,6 +62,6 @@ Project builds are a stripped down version of [Angular Class Webpack Starter](ht
 * Async ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
 * Todos with Undo/Redo ([based off example](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview)) ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos-undo-redo))
 * Shopping Cart - Coming soon!
-* Real World - Coming soon!
+* Real World - In Progress!
 * Much more to come!
 

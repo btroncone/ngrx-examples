@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {Counter} from './components/counter';
+import {LogMonitor} from 'ngrx-store-devtools-next';
 
 @Component({
 	selector: `app`,
@@ -15,7 +16,8 @@ import {Counter} from './components/counter';
 			<counter></counter>
 		</div>
 	</div>
+	<log-monitor></log-monitor>
 	`,
-    directives: [Counter]
+    directives: [Counter, LogMonitor]
 })
 export class App {}

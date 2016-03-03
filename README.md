@@ -35,7 +35,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 
 ### Middleware Examples
 * [Store-Saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan
-* [NgRx Local Storage - Basic example syncing state slices to local storage](https://gist.github.com/btroncone/d3095cf56f63a9e948a1) - Brian Troncone
+* [NgRx Local Storage - Sync local storage with ngrx state slices](https://github.com/btroncone/ngrx-store-localstorage) - Brian Troncone
 
 
 ##Getting Started

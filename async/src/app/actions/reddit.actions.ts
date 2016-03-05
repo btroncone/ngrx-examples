@@ -16,14 +16,14 @@ export class RedditActions{
     private actions$: BehaviorSubject<Action> = new BehaviorSubject({type: null, payload: null});
 
     constructor(
-        private store : Store<any>,
-        private reddit : Reddit
+        private _store : Store<any>,
+        private _reddit : Reddit
     ){
-        const posts$ = store.select(state => state.postsByReddit);
+        const posts$ = _store.select(state => state.postsByReddit);
 
         const selectReddit = this.actions$
             .filter((action : Action) => action.type === SELECT_REDDIT);
-
+    
         const invalidateReddit = this.actions$
             .filter((action : Action) => action.type === INVALIDATE_REDDIT);
 
@@ -33,16 +33,17 @@ export class RedditActions{
                 action
             })));
 
+        //noinspection TypeScriptUnresolvedVariable,TypeScriptValidateTypes
         const fetchPosts = fetchPostsIfNeeded
             .filter(({action, shouldFetch}) => shouldFetch)
-            .do(({action}) => store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}}))
+            .do(({action}) => _store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}}))
             //if data does not exist, fetch posts
-            .flatMap(({action}) => reddit.fetchPosts(action.payload),
+            .flatMap(({action}) => _reddit.fetchPosts(action.payload),
                 ({action}, {data}) => ({ type: RECEIVE_POSTS, payload: {reddit: action.payload, data}}));
 
         Observable
             .merge(selectReddit, invalidateReddit, fetchPosts)
-            .subscribe((action : Action) => store.dispatch(action));
+            .subscribe(_store);
     }
 
     selectReddit(reddit: string){

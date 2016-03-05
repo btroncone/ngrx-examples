@@ -21,7 +21,8 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/) - Wayne Maurer
 * [Understand and Utilize the Async Pipe in Angular 2](http://briantroncone.com/?p=623) - Brian Troncone
 
-###Presentations and Slides
+### Presentations and Slides
+* [Reactive Angular 2 - NG-NL 2016](https://www.youtube.com/watch?v=xAEFTSMEgIQ) - Rob Wormald
 * [Introduction to RxJS 5 - NG-NL 2016](http://slides.com/gerardsans/ng-nl-rxjs5) - Gerard Sans
 * [Angular 2 Change Detection Explained](http://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/) - Pascal Precht
 * [Angular 2 and the Single Immutable State Tree](https://speakerdeck.com/cironunes/angular-2-and-the-single-immutable-state-tree) - Ciro Nunes

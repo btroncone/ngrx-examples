@@ -2,7 +2,9 @@
 import 'es6-shim';
 // (these modules are what are in 'angular2/bundles/angular2-polyfills' so don't use that here)
 import 'es6-promise';
-import 'rxjs';
+import 'rxjs/rx';
+import 'es7-reflect-metadata';
+import 'zone.js/dist/zone-microtask';
 
 if ('production' === process.env.ENV) {
     // Production
@@ -19,13 +21,6 @@ if ('production' === process.env.ENV) {
 
 } else {
     // Development
-
-    // Reflect Polyfill
-    require('es7-reflect-metadata/src/global/browser');
-    // In production Reflect with es7-reflect-metadata/reflect-metadata is added
-
-    // by webpack.prod.config ProvidePlugin
     Error['stackTraceLimit'] = Infinity;
-    require('zone.js/dist/zone-microtask');
     require('zone.js/dist/long-stack-trace-zone');
 }

@@ -20,6 +20,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Build a Better Angular 2 Application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/) - Lukas Ruebbelke
 * [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/) - Wayne Maurer
 * [Understand and Utilize the Async Pipe in Angular 2](http://briantroncone.com/?p=623) - Brian Troncone
+* [Communication Between Components & Components Design](http://orizens.com/wp/topics/angular-2-communication-between-components-components-design/) - Oren Farhi
 
 ### Presentations and Slides
 * [Reactive Angular 2 - NG-NL 2016](https://www.youtube.com/watch?v=xAEFTSMEgIQ) - Rob Wormald

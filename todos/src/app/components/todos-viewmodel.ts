@@ -23,7 +23,7 @@ export class TodosViewModel{
                 }
             }
         );
-        
+        //expose to view
         this.todos$ = viewModel$.map(vm => vm.todos);
         this.totalTodos$ = viewModel$.map(vm => vm.totalTodos);
         this.completedTodos$ = viewModel$.map(vm => vm.completedTodos);

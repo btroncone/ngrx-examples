@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from 'angular2/core';
 import {TodoList} from "./components/todo-list";
 import {TodosViewModel} from "./components/todos-viewmodel";
 import {VisibilityFilterActions} from "./actions/visibility-filter.actions";
@@ -29,7 +29,8 @@ import {AsyncPipe} from "angular2/common";
 	`,
     directives: [TodoList],
 	pipes: [AsyncPipe],
-	providers: [TodosViewModel]
+	providers: [TodosViewModel],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoApp {
 	constructor(

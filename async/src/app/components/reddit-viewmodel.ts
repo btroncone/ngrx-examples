@@ -3,17 +3,17 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import {RedditPosts} from "../reducers/reddit";
 
-export interface RedditVm extends RedditPosts{
-    selectedReddit: string
-}
-
 @Injectable()
 export class RedditViewModel{
-    public viewModel$ : Observable<RedditVm>;
+    public selectedReddit$ : Observable<string>;
+    public posts$ : Observable<Array<any>>;
+    public isFetching$: Observable<boolean>;
+    public lastUpdated$: Observable<Date>;
+
     constructor(
         private store: Store<any>
     ){
-        this.viewModel$ = Observable.combineLatest(
+        const viewModel$ = Observable.combineLatest(
             store.select('postsByReddit'),
             store.select('selectedReddit'),
             (postsByReddit : Array<any>, selectedReddit : string) => {
@@ -34,5 +34,10 @@ export class RedditViewModel{
                 }
             }
         );
+        //expose to view
+        this.selectedReddit$ = viewModel$.map(vm => vm.selectedReddit);
+        this.posts$ = viewModel$.map(vm => vm.posts);
+        this.isFetching$ = viewModel$.map(vm => vm.isFetching);
+        this.lastUpdated$ = viewModel$.map(vm => vm.lastUpdated);
     }
 }

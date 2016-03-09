@@ -1,9 +1,10 @@
-import {Component} from 'angular2/core';
-import {RedditViewModel, RedditVm} from "./components/reddit-viewmodel";
+import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {RedditViewModel} from "./components/reddit-viewmodel";
 import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
-import {DatePipe} from "angular2/common";
+import {DatePipe, AsyncPipe} from "angular2/common";
+import {RefreshButton} from "./components/refresh-button";
 
 @Component({
 	selector: `async-app`,
@@ -16,33 +17,32 @@ import {DatePipe} from "angular2/common";
 			</div>
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
-		<h2>Currently Displaying: {{viewModel.selectedReddit}}</h2>
-		<h5>Last Updated: {{viewModel.lastUpdated | date:'mediumTime'}}</h5>
+		<h2>Currently Displaying: {{viewModel.selectedReddit$ | async}}</h2>
+		<h5>Last Updated: {{(viewModel.lastUpdated$ | async) | date:'mediumTime'}}</h5>
 			<reddit-select
-				(redditSelect)="redditActions.selectReddit($event)">
+				(redditSelect)="redditActions.selectReddit($event)"
+				>
 			</reddit-select>
-			<button
-				(click)="redditActions.invalidateReddit(viewModel.selectedReddit)">
-				Refresh
-			</button>
+			<refresh-button
+				[selectedReddit]="(viewModel.selectedReddit$ | async)"
+				(invalidateReddit)="redditActions.invalidateReddit($event)">
+			</refresh-button>
 			<reddit-list
-				[posts]="viewModel.posts"
-				[isFetching]="viewModel.isFetching">
+				[posts]="(viewModel.posts$ | async)"
+				[isFetching]="(viewModel.isFetching$ | async)">
 			</reddit-list>
 		</div>
 	</div>
 	`,
-    directives: [RedditList, RedditSelect],
+    directives: [RedditList, RedditSelect, RefreshButton],
 	providers: [RedditViewModel],
-	pipes: [DatePipe]
+	pipes: [DatePipe, AsyncPipe],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AsyncApp {
-	viewModel : RedditVm;
 	constructor(
-		private redditViewModel: RedditViewModel,
+		private viewModel: RedditViewModel,
 		private redditActions: RedditActions
-	){
-		this.redditViewModel.viewModel$.subscribe(viewModel => this.viewModel = viewModel)
-	}
+	){}
 
 }

@@ -28,15 +28,15 @@ export class RedditActions{
             .filter((action : Action) => action.type === INVALIDATE_REDDIT);
 
         const fetchPostsIfNeeded = selectReddit
-            .flatMap((action : Action) => posts$.map(post => ({
+            .withLatestFrom(posts$, (action, post) => ({
                 shouldFetch: this.shouldFetchPosts(post, action.payload),
                 action
-            })));
+            }))
+            .filter(({action, shouldFetch}) => shouldFetch)
 
         //noinspection TypeScriptUnresolvedVariable,TypeScriptValidateTypes
         const fetchPosts = fetchPostsIfNeeded
-            .filter(({action, shouldFetch}) => shouldFetch)
-            .do(({action}) => _store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}}))
+            .do(({action}) => { _store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}})})
             //if data does not exist, fetch posts
             .flatMap(({action}) => _reddit.fetchPosts(action.payload),
                 ({action}, {data}) => ({ type: RECEIVE_POSTS, payload: {reddit: action.payload, data}}));

@@ -3,19 +3,16 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import {Todo} from "../reducers/todos";
 
-export interface TodosVm{
-    todos : Todo[],
-    totalTodos: number,
-    completedTodos: number
-}
-
 @Injectable()
 export class TodosViewModel{
-    public viewModel$ : Observable<TodosVm>;
+    public todos$ : Observable<Todo[]>;
+    public totalTodos$ : Observable<number>;
+    public completedTodos$ : Observable<number>;
+
     constructor(
         private store: Store<any>
     ){
-        this.viewModel$ = Observable.combineLatest(
+        const viewModel$ = Observable.combineLatest(
             store.select('todos'),
             store.select('visibilityFilter'),
             (todos : Array<Todo>, visibilityFilter : string) => {
@@ -26,6 +23,10 @@ export class TodosViewModel{
                 }
             }
         );
+        
+        this.todos$ = viewModel$.map(vm => vm.todos);
+        this.totalTodos$ = viewModel$.map(vm => vm.totalTodos);
+        this.completedTodos$ = viewModel$.map(vm => vm.completedTodos);
     }
 
     private visibleTodos(todos : Array<Todo>, filter: string) : Todo[]{

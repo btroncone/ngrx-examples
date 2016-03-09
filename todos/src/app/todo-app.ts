@@ -1,8 +1,9 @@
 import {Component} from 'angular2/core';
 import {TodoList} from "./components/todo-list";
-import {TodosViewModel, TodosVm} from "./components/todos-viewmodel";
+import {TodosViewModel} from "./components/todos-viewmodel";
 import {VisibilityFilterActions} from "./actions/visibility-filter.actions";
 import {TodosActions} from "./actions/todos.actions";
+import {AsyncPipe} from "angular2/common";
 
 @Component({
 	selector: `todo-app`,
@@ -16,9 +17,9 @@ import {TodosActions} from "./actions/todos.actions";
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<todo-list
-				[todos]="viewModel.todos"
-				[completedTodos]="viewModel.completedTodos"
-				[totalTodos]="viewModel.totalTodos"
+				[todos]="(viewModel.todos$ | async)"
+				[completedTodos]="(viewModel.completedTodos$ | async)"
+				[totalTodos]="(viewModel.totalTodos$ | async)"
 				(toggleTodo)="todosActions.toggleTodo($event)"
 				(addTodo)="todosActions.addTodo($event)"
 				(visibility)="visibilityFilterActions.setVisibilityFilter($event)">
@@ -27,16 +28,13 @@ import {TodosActions} from "./actions/todos.actions";
 	</div>
 	`,
     directives: [TodoList],
+	pipes: [AsyncPipe],
 	providers: [TodosViewModel]
 })
 export class TodoApp {
-	viewModel : TodosVm;
-
 	constructor(
-		public todosVm : TodosViewModel,
+		public viewModel : TodosViewModel,
 		public todosActions: TodosActions,
 		public visibilityFilterActions: VisibilityFilterActions
-	){
-		this.todosVm.viewModel$.subscribe(vm => this.viewModel = vm);
-	}
+	){}
 }

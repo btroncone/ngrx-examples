@@ -21,7 +21,6 @@ const todo : Reducer<Todo> = (state : Todo, action: Action) => {
             if(state.id !== action.payload.id){
                 return state;
             }
-
             return Object.assign({}, state, {
                 completed: !state.completed
             });

@@ -35,10 +35,11 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [NgRx Dev Tools First Look](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) - Rob Wormald
 * [An example implementation of ngrx-store with async actions](https://github.com/thaiat/ngrx-store-example) - Avi Haiat
 
-### Middleware Examples
-* [Store-Saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan
-* [NgRx Local Storage - Sync local storage with ngrx state slices](https://github.com/btroncone/ngrx-store-localstorage) - Brian Troncone
-
+### Middleware
+* [store-saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan
+* [ngrx-store-localstorage - Sync local storage with ngrx state slices](https://github.com/btroncone/ngrx-store-localstorage) - Brian Troncone
+* [ngrx-store-logger - Advanced action/state logging for @ngrx/store applications](https://github.com/btroncone/ngrx-store-logger) - Brian Troncone
+* [ngrx-store-router - Sync between the current Angular 2 Router URL and @ngrx/store](https://github.com/CodeSequence/ngrx-store-router) - Brandon Roberts
 
 ##Getting Started
 ```bash

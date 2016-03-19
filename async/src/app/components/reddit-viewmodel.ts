@@ -33,7 +33,7 @@ export class RedditViewModel{
                     lastUpdated
                 }
             }
-        );
+        ).share();
         //expose to view
         this.selectedReddit$ = viewModel$.map(vm => vm.selectedReddit);
         this.posts$ = viewModel$.map(vm => vm.posts);

@@ -22,7 +22,7 @@ export class TodosViewModel{
                     completedTodos: todos.filter((todo : Todo) => todo.completed).length
                 }
             }
-        );
+        ).share();
         //expose to view
         this.todos$ = viewModel$.map(vm => vm.todos);
         this.totalTodos$ = viewModel$.map(vm => vm.totalTodos);

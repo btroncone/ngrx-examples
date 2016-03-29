@@ -4,14 +4,19 @@ import {App} from './app';
 import {provideStore} from "@ngrx/store";
 import {counter} from "./reducers/counter";
 import {BASIC_LOGGER_MIDDLEWARE} from "./middleware/logger";
-import {instrumentStore} from 'ngrx-store-devtools-next';
+import {instrumentStore, devtoolsConfig} from '@ngrx/devtools';
 
 export function main() {
   return bootstrap(App, [
       ELEMENT_PROBE_PROVIDERS,
-      provideStore({counter}, {counter : 0}),
+      provideStore({counter}),
       ...BASIC_LOGGER_MIDDLEWARE,
-      instrumentStore()
+      instrumentStore(),
+      devtoolsConfig({
+          position: 'bottom',
+          visible: true,
+          size: 0.3
+      })
   ])
   .catch(err => console.error(err));
 }

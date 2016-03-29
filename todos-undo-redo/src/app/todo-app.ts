@@ -3,6 +3,7 @@ import {TodoList} from "./components/todo-list";
 import {TodosViewModel, TodosVm} from "./components/todos-viewmodel";
 import {VisibilityFilterActions} from "./actions/visibility-filter.actions";
 import {TodosActions} from "./actions/todos.actions";
+import {Devtools} from '@ngrx/devtools';
 
 @Component({
 	selector: `todo-app`,
@@ -27,8 +28,9 @@ import {TodosActions} from "./actions/todos.actions";
 			</todo-list>
 		</div>
 	</div>
+	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [TodoList],
+    directives: [TodoList, Devtools],
 	providers: [TodosViewModel]
 })
 export class TodoApp {

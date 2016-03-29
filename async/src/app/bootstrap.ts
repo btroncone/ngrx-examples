@@ -6,6 +6,7 @@ import {selectedReddit, postsByReddit} from "./reducers/reddit";
 import {RedditActions} from "./actions/reddit.actions";
 import {Reddit} from "./services/reddit";
 import {HTTP_PROVIDERS} from "angular2/http";
+import {instrumentStore, devtoolsConfig} from '@ngrx/devtools';
 
 export function main() {
   return bootstrap(AsyncApp, [
@@ -13,7 +14,13 @@ export function main() {
       HTTP_PROVIDERS,
       provideStore({selectedReddit, postsByReddit}),
       Reddit,
-      RedditActions
+      RedditActions,
+      instrumentStore(),
+      devtoolsConfig({
+          position: 'bottom',
+          visible: true,
+          size: 0.3
+      })
   ])
   .catch(err => console.error(err));
 }

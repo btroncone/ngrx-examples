@@ -28,6 +28,13 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Angular 2 Change Detection Explained](http://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/) - Pascal Precht
 * [Angular 2 and the Single Immutable State Tree](https://speakerdeck.com/cironunes/angular-2-and-the-single-immutable-state-tree) - Ciro Nunes
 
+### Videos and Lessons
+* [Step-by-Step Async JavaScript with RxJS](https://egghead.io/series/step-by-step-async-javascript-with-rxjs) - John Lindquist
+* [RxJS Lessons from Ben Lesh](https://egghead.io/instructors/ben-lesh) - Ben Lesh
+* [Introduction to Reactive Programming](https://egghead.io/series/introduction-to-reactive-programming) - André Staltz
+* [Getting Started With Redux](https://egghead.io/series/getting-started-with-redux) - Dan Abramov
+* [Asynchronous Programming - The End of the Loop](https://egghead.io/series/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
+
 ###Repositories and Code Samples
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic

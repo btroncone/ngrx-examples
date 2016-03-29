@@ -4,6 +4,7 @@ import {TodosViewModel} from "./components/todos-viewmodel";
 import {VisibilityFilterActions} from "./actions/visibility-filter.actions";
 import {TodosActions} from "./actions/todos.actions";
 import {AsyncPipe} from "angular2/common";
+import {Devtools} from '@ngrx/devtools';
 
 @Component({
 	selector: `todo-app`,
@@ -26,8 +27,9 @@ import {AsyncPipe} from "angular2/common";
 			</todo-list>
 		</div>
 	</div>
+	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [TodoList],
+    directives: [TodoList, Devtools],
 	pipes: [AsyncPipe],
 	providers: [TodosViewModel],
 	changeDetection: ChangeDetectionStrategy.OnPush

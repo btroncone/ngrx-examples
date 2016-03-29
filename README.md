@@ -4,7 +4,7 @@
 
 ##Goal
 
-These examples illustrate how to utilize ngrx within an Angular 2 application. This repository will be actively maintained and updated as new tools (dev tools?) and functionality become available and best practices are established.
+These examples illustrate how to utilize ngrx within an Angular 2 application. This repository will be actively maintained and updated as new tools and functionality become available and best practices are established.
 
 ##Contributions
 

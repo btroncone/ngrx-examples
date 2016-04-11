@@ -5,7 +5,6 @@ import {provideStore} from "@ngrx/store";
 import {APP_REDUCERS} from "./reducers/reducers";
 import {APP_SAGAS} from "./sagas/sagas";
 import shopSagas from "./sagas/shop";
-import {APP_ACTIONS} from "./actions/actions";
 import {instrumentStore, devtoolsConfig} from '@ngrx/devtools';
 import {installSagaMiddleware} from 'store-saga';
 
@@ -13,7 +12,6 @@ import {installSagaMiddleware} from 'store-saga';
 export function main() {
   return bootstrap(ShoppingCartApp, [
       ELEMENT_PROBE_PROVIDERS,
-      APP_ACTIONS,
       provideStore(APP_REDUCERS),
       installSagaMiddleware(...shopSagas),
       instrumentStore(),

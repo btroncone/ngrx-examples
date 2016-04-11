@@ -1,8 +1,11 @@
 import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "angular2/core";
+import { Observable, Subject } from 'rxjs';
+import {Store, Action} from "@ngrx/store";
+
 import {CartItem} from "./cart-item";
 import {ICart} from "../reducers/cart";
+import {checkout} from "../actions/cart";
 import {IProduct} from "../reducers/products";
-import {CartActions} from "../actions/cart.actions";
 
 @Component({
     selector: 'cart-list',
@@ -15,7 +18,7 @@ import {CartActions} from "../actions/cart.actions";
             </cart-item>
         </ul>
         <button class="pure-button pure-button-primary"
-            (click)="cartActions.checkout(cartList)">
+            (click)="checkoutAction.next($event)">
             Checkout
          </button>
     `,
@@ -24,8 +27,11 @@ import {CartActions} from "../actions/cart.actions";
 })
 export class CartList {
     @Input() cartList: any;
+    checkoutAction = new Subject<[number]>();
 
-    constructor(public cartActions: CartActions) {
-
+    constructor(public store: Store<any>) {
+        this.checkoutAction
+            .map(checkout)
+            .subscribe(store);
     }
 }

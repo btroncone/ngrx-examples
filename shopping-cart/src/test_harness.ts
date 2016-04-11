@@ -5,4 +5,6 @@ import 'rxjs/add/observable/empty';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/timer';
+import 'rxjs/add/operator/toArray';

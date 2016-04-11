@@ -45,7 +45,7 @@ describe('Shop Effect LOAD', () => {
         sagaTester.output
             .filter(Boolean)
             .subscribe(last => {
-                expect(last).toEqual({ type: CHECKOUT_SUCCESS, payload: true });
+                expect(last).toEqual({ type: CHECKOUT_SUCCESS, payload: 0 });
                 done();
             });
     });

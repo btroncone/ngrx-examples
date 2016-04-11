@@ -4,18 +4,15 @@
 import {jsonProducts} from './productsJSON';
 import { Observable } from 'rxjs/Observable';
 
-const TIMEOUT = 100
+const TIMEOUT = 100;
 
 export default {
     getProducts(timeout) {
-        return Observable.interval(timeout || TIMEOUT)
-            .take(1)
-            .map(() => jsonProducts);
+        return Observable.of(jsonProducts)
+            .delay(timeout || TIMEOUT);
     },
 
     buyProducts(payload, timeout) {
-         return Observable.interval(timeout || TIMEOUT)
-            .take(1)
-            .map(() => true);
+         return Observable.timer(timeout || TIMEOUT);
     }
 }

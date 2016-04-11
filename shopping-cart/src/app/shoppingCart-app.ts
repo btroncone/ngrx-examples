@@ -1,11 +1,13 @@
 import {Component, ChangeDetectionStrategy} from 'angular2/core';
 import {ProductList} from "./components/product-list";
 import {CartList} from "./components/cart-list";
-import {ProductsActions} from "./actions/products.actions";
-import {CartActions} from "./actions/cart.actions";
+import {getProducts} from "./actions/products";
+import {productSelector, productAsArraySelector} from "./selectors/product.selector";
+import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
 import {AsyncPipe} from "angular2/common";
 import {Devtools} from '@ngrx/devtools';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import {Store, Action} from "@ngrx/store";
 
 @Component({
     selector: `shopping-cart-app`,
@@ -19,7 +21,7 @@ import { Observable } from 'rxjs';
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<product-list
-				[products]="(productsActions.products$ | async)">
+				[products]="(products | async)">
 			</product-list>
             <cart-list
 				[cartList]="(cartList | async)">
@@ -35,28 +37,14 @@ import { Observable } from 'rxjs';
 export class ShoppingCartApp {
 
     cartList: any;
+    products: any;
+    actions = new Subject<Action>();
 
-    constructor(
-        public cartActions: CartActions,
-        public productsActions: ProductsActions
-    ) {
-        productsActions.getProducts();
-        this.cartList = Observable
-            .combineLatest(cartActions.cart$, productsActions.products$)
-            .filter((res: any) => {
-                return !!res[0].productIds && !!res[1]
-            })
-            .map((res: any) => {
-                var result: any = [];
-                res[0].productIds.forEach(productId => {
-                    var product = res[1].filter(product => product.id == productId)[0]
-                    result.push({
-                        title: product.title,
-                        price: product.price,
-                        quantity: res[0].quantityById[productId]
-                    });
-                });
-                return result;
-            });
+    constructor(public store: Store<any>) {
+        this.products = store.let(productAsArraySelector);
+        this.cartList = store.let(calculatedCartList);
+
+        this.actions.subscribe(store);
+        this.actions.next(getProducts());
     }
 }

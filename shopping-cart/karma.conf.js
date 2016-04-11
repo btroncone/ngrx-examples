@@ -1,7 +1,7 @@
 // @AngularClass
 
 module.exports = function(config) {
-  var testWebpackConfig = require('./webpack.test.conf.js');
+  var testWebpackConfig = require('./webpack.test.config.js');
 
   config.set({
 

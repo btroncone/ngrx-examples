@@ -9,7 +9,7 @@ import {IProduct} from "../reducers/products";
         <button class="pure-button pure-button-primary"
             (click)="addToCart.emit(product)"
             [disabled]="product.inventory < 1">
-            Add to Cart
+            {{product.inventory < 1 ? "Out of Stock" : "Add to Cart"}}
         </button>
     </li>
     `,

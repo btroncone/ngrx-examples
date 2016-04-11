@@ -1,7 +1,10 @@
 import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "angular2/core";
+import { Subject, Observable } from 'rxjs';
+import {Store, Action} from "@ngrx/store";
+
 import {ProductItem} from "./product-item";
 import {IProduct} from "../reducers/products";
-import {ProductsActions} from "../actions/products.actions";
+import {addToCart} from "../actions/products";
 
 @Component({
     selector: 'product-list',
@@ -11,7 +14,7 @@ import {ProductsActions} from "../actions/products.actions";
             <product-item
                 *ngFor="#product of products"
                 [product]="product"
-                (addToCart)="productsAction.addToCart($event)">
+                (addToCart)="addToCartAction.next($event)">
             </product-item>
         </ul>
 
@@ -21,8 +24,11 @@ import {ProductsActions} from "../actions/products.actions";
 })
 export class ProductList {
     @Input() products: IProduct[];
+    addToCartAction = new Subject<IProduct>();
 
-    constructor(public productsAction: ProductsActions) {
+    constructor(public store: Store<any>) {
+        this.addToCartAction
+            .map(addToCart)
+            .subscribe(store);
     }
-
 }

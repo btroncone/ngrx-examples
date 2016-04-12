@@ -16,6 +16,9 @@ Please add any additional Angular 2, ngrx, or reactive programming articles, rep
 ##Additional Resources
 Additional Angular 2, ngrx, and reactive programming articles, repositories, and code samples:
 
+### Introduction
+* [Comprehensive Introduction to ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510) - Brian Troncone
+
 ###Articles
 * [Build a Better Angular 2 Application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/) - Lukas Ruebbelke
 * [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/) - Wayne Maurer
@@ -35,13 +38,12 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Getting Started With Redux](https://egghead.io/series/getting-started-with-redux) - Dan Abramov
 * [Asynchronous Programming - The End of the Loop](https://egghead.io/series/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
 
-###Repositories and Code Samples
+### Repositories and Code Sample
+* [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquists
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald
 * [NgRx Dev Tools First Look](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) - Rob Wormald
-* [An example implementation of ngrx-store with async actions](https://github.com/thaiat/ngrx-store-example) - Avi Haiat
-* [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 
 ### Middleware
 * [store-saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan

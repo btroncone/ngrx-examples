@@ -11,7 +11,7 @@ var HMR = helpers.hasProcessFlag('hot');
 const autoprefixer = require('autoprefixer');
 
 var metadata = {
-  title: 'Bucketbot',
+  title: 'NgRx Shopping Cart Example',
   baseUrl: '/',
   host: 'localhost',
   port: 3000,

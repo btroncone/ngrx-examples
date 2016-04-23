@@ -64,7 +64,6 @@
     "raw-loader": "0.5.1",
     "reflect-metadata": "0.1.2",
     "remap-istanbul": "^0.5.1",
-    "respond-ng": "0.0.2",
     "rimraf": "^2.5.1",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",

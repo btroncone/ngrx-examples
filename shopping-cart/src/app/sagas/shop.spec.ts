@@ -4,7 +4,6 @@ import {Observable} from 'rxjs/Observable';
 import {provideStore, Store, Action, Dispatcher, usePostMiddleware} from '@ngrx/store';
 import {Saga, SagaRunner, schedulerProvider, SagaScheduler, createSaga, whenAction, installSagaMiddleware} from 'store-saga';
 import {SagaTester} from 'store-saga/testing';
-import RESPOND_PROVIDERS, {Respond} from 'respond-ng';
 
 import {products, REQUEST_PRODUCTS, RECEIVED_PRODUCTS} from '../reducers/products';
 import {CHECKOUT_REQUEST, CHECKOUT_SUCCESS} from '../reducers/cart';

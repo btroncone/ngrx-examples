@@ -1,7 +1,11 @@
 import {Component, ChangeDetectionStrategy} from 'angular2/core';
 import {ProductList} from "./components/product-list";
 import {CartList} from "./components/cart-list";
-import {getProducts} from "./actions/products";
+
+import {getProducts, addToCart} from "./actions/products";
+import {checkout} from "./actions/cart";
+import {IProduct} from "./reducers/products";
+
 import {productSelector, productAsArraySelector} from "./selectors/product.selector";
 import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
 import {AsyncPipe} from "angular2/common";
@@ -21,10 +25,12 @@ import {Store, Action} from "@ngrx/store";
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
 			<product-list
-				[products]="(products | async)">
+				[products]="(products | async)"
+                (addToCart)="actions$.next(addToCartAction($event))">
 			</product-list>
             <cart-list
-				[cartList]="(cartList | async)">
+				[cartList]="(cartList | async)"
+                (checkout)="actions$.next(checkoutAction($event))">
 			</cart-list>
 		</div>
 	</div>
@@ -38,13 +44,20 @@ export class ShoppingCartApp {
 
     cartList: any;
     products: any;
-    actions = new Subject<Action>();
+    actions$ = new Subject<Action>();
+
+    addToCartAction = addToCart;
+    checkoutAction = checkout;
 
     constructor(public store: Store<any>) {
         this.products = store.let(productAsArraySelector);
         this.cartList = store.let(calculatedCartList);
 
-        this.actions.subscribe(store);
-        this.actions.next(getProducts());
+        this.actions$.subscribe(store);
+        this.actions$.next(getProducts());
+    }
+    
+    ngOnDestroy() {
+        this.store.unsubscribe();
     }
 }

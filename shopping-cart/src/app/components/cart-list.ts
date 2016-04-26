@@ -4,7 +4,6 @@ import {Store, Action} from "@ngrx/store";
 
 import {CartItem} from "./cart-item";
 import {ICart} from "../reducers/cart";
-import {checkout} from "../actions/cart";
 import {IProduct} from "../reducers/products";
 
 @Component({
@@ -18,7 +17,7 @@ import {IProduct} from "../reducers/products";
             </cart-item>
         </ul>
         <button class="pure-button pure-button-primary"
-            (click)="checkoutAction.next($event)">
+            (click)="checkout.emit($event)">
             Checkout
          </button>
     `,
@@ -27,11 +26,5 @@ import {IProduct} from "../reducers/products";
 })
 export class CartList {
     @Input() cartList: any;
-    checkoutAction = new Subject<[number]>();
-
-    constructor(public store: Store<any>) {
-        this.checkoutAction
-            .map(checkout)
-            .subscribe(store);
-    }
+    @Output() checkout = new EventEmitter<any>();
 }

@@ -4,7 +4,6 @@ import {Store, Action} from "@ngrx/store";
 
 import {ProductItem} from "./product-item";
 import {IProduct} from "../reducers/products";
-import {addToCart} from "../actions/products";
 
 @Component({
     selector: 'product-list',
@@ -14,7 +13,7 @@ import {addToCart} from "../actions/products";
             <product-item
                 *ngFor="#product of products"
                 [product]="product"
-                (addToCart)="addToCartAction.next($event)">
+                (addToCart)="addToCart.emit($event)">
             </product-item>
         </ul>
 
@@ -23,12 +22,6 @@ import {addToCart} from "../actions/products";
     directives: [ProductItem]
 })
 export class ProductList {
-    @Input() products: IProduct[];
-    addToCartAction = new Subject<IProduct>();
-
-    constructor(public store: Store<any>) {
-        this.addToCartAction
-            .map(addToCart)
-            .subscribe(store);
-    }
+    @Input() products: IProduct[];    
+    @Output() addToCart = new EventEmitter<IProduct>();
 }

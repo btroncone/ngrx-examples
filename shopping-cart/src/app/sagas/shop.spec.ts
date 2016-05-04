@@ -1,5 +1,5 @@
 import '../../test_harness';
-import {Injector, Provider} from 'angular2/core';
+import {Injector, Provider, ReflectiveInjector} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {provideStore, Store, Action, Dispatcher, usePostMiddleware} from '@ngrx/store';
 import {Saga, SagaRunner, schedulerProvider, SagaScheduler, createSaga, whenAction, installSagaMiddleware} from 'store-saga';
@@ -16,7 +16,7 @@ describe('Shop Effect LOAD', () => {
     let sagaTester: SagaTester;
 
     beforeEach(() => {
-        const injector = Injector.resolveAndCreate([
+        const injector = ReflectiveInjector.resolveAndCreate([
             SagaTester, schedulerProvider
         ]);
 

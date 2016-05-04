@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "angular2/core";
+import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "@angular/core";
 import { Observable, Subject } from 'rxjs';
 import {Store, Action} from "@ngrx/store";
 
@@ -12,7 +12,7 @@ import {IProduct} from "../reducers/products";
         Cart
         <ul *ngIf="cartList">
             <cart-item
-                *ngFor="#cartItem of cartList"
+                *ngFor="let cartItem of cartList"
                 [cartItem]="cartItem">
             </cart-item>
         </ul>

@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "angular2/core";
+import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "@angular/core";
 import { Subject, Observable } from 'rxjs';
 import {Store, Action} from "@ngrx/store";
 
@@ -11,7 +11,7 @@ import {IProduct} from "../reducers/products";
         Products
         <ul>
             <product-item
-                *ngFor="#product of products"
+                *ngFor="let product of products"
                 [product]="product"
                 (addToCart)="addToCart.emit($event)">
             </product-item>

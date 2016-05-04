@@ -1,10 +1,10 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {ProductList} from "./components/product-list";
 import {CartList} from "./components/cart-list";
 import {getProducts} from "./actions/products";
 import {productSelector, productAsArraySelector} from "./selectors/product.selector";
 import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
-import {AsyncPipe} from "angular2/common";
+import {AsyncPipe} from "@angular/common";
 import {Devtools} from '@ngrx/devtools';
 import { Observable, Subject } from 'rxjs';
 import {Store, Action} from "@ngrx/store";

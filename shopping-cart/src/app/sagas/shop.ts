@@ -1,4 +1,4 @@
-import {Http} from 'angular2/http';
+import {Http} from '@angular/http';
 import {createSaga, Saga, whenAction, toPayload} from 'store-saga';
 import {REQUEST_PRODUCTS, RECEIVED_PRODUCTS} from '../reducers/products';
 import {CHECKOUT_REQUEST, CHECKOUT_FAILURE, CHECKOUT_SUCCESS} from '../reducers/cart';

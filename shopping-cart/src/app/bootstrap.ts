@@ -1,5 +1,5 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {ELEMENT_PROBE_PROVIDERS} from '@angular/platform-browser/index';
 import {ShoppingCartApp} from './shoppingCart-app';
 import {provideStore} from "@ngrx/store";
 import {APP_REDUCERS} from "./reducers/reducers";

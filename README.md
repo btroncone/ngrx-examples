@@ -82,6 +82,6 @@ Project builds are a stripped down version of [Angular Class Webpack Starter](ht
 * Todos ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos))
 * Async ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
 * Todos with Undo/Redo ([based off example](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview)) ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos-undo-redo))
-* Shopping Cart - Coming soon!
+* Shopping Cart - ([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))
 * Real World - In Progress!
 * Much more to come!

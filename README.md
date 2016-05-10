@@ -42,7 +42,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Asynchronous Programming - The End of the Loop](https://egghead.io/series/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
 
 ### Repositories and Code Sample
-* [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquists
+* [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald

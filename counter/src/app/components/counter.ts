@@ -1,5 +1,4 @@
-import {Component, ChangeDetectionStrategy} from "angular2/core";
-import {AsyncPipe} from "angular2/common";
+import {Component, ChangeDetectionStrategy} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 
@@ -14,7 +13,6 @@ import {Observable} from "rxjs/Observable";
         <h3>{{counter$ | async}}</h3>
     </div>
     `,
-    pipes: [AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Counter{
@@ -23,7 +21,7 @@ export class Counter{
     constructor(
         private store : Store<number>
     ){
-        this.counter$ = this.store.select('counter')
+        this.counter$ = this.store.select<number>('counter')
     }
 
     increment(){

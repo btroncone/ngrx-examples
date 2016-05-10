@@ -1,5 +1,4 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {App} from './app';
 import {provideStore} from "@ngrx/store";
 import {counter} from "./reducers/counter";
@@ -8,7 +7,6 @@ import {instrumentStore, devtoolsConfig} from '@ngrx/devtools';
 
 export function main() {
   return bootstrap(App, [
-      ELEMENT_PROBE_PROVIDERS,
       provideStore({counter}),
       ...BASIC_LOGGER_MIDDLEWARE,
       instrumentStore(),

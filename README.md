@@ -18,6 +18,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 
 ### Introduction
 * [Comprehensive Introduction to ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510) - Brian Troncone
+* [Reactive Angular 2 with ngrx](https://www.youtube.com/watch?v=mhA7zZ23Odw) - Rob Wormald
 * [@ngrx/store in 10 minutes - egghead.io](https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes) - Brian Troncone
 
 ###Articles

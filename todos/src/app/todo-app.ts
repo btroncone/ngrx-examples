@@ -1,9 +1,8 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {TodoList} from "./components/todo-list";
 import {TodosViewModel} from "./components/todos-viewmodel";
 import {VisibilityFilterActions} from "./actions/visibility-filter.actions";
 import {TodosActions} from "./actions/todos.actions";
-import {AsyncPipe} from "angular2/common";
 import {Devtools} from '@ngrx/devtools';
 
 @Component({
@@ -30,7 +29,6 @@ import {Devtools} from '@ngrx/devtools';
 	<ngrx-devtools></ngrx-devtools>
 	`,
     directives: [TodoList, Devtools],
-	pipes: [AsyncPipe],
 	providers: [TodosViewModel],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })

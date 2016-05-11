@@ -1,7 +1,7 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {Store, Action} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
-import {BehaviorSubject} from "rxjs/Rx";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Reddit} from "../services/reddit";
 import {
     REQUEST_POSTS,

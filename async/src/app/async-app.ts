@@ -1,9 +1,9 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {RedditViewModel} from "./components/reddit-viewmodel";
 import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
-import {DatePipe, AsyncPipe} from "angular2/common";
+import {DatePipe, AsyncPipe} from "@angular/common";
 import {RefreshButton} from "./components/refresh-button";
 import {Devtools} from '@ngrx/devtools';
 

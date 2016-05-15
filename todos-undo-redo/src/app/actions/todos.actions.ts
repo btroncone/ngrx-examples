@@ -1,4 +1,4 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {Todo, ADD_TODO, TOGGLE_TODO} from "../reducers/todos";
 import {REDO, UNDO} from "../undoable";

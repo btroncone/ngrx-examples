@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "angular2/core";
+import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "@angular/core";
 import {TodoItem} from "./todo-item";
 import {Todo} from "../reducers/todos";
 

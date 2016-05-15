@@ -48,6 +48,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald
 * [Angular2 Seed with ngrx-store, store-saga and ngrx-DevTools](https://github.com/Lube/angular2-seed) - Sebastian Luberriaga
 * [NgRx Dev Tools First Look](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) - Rob Wormald
+* [Tour of Heroes](https://github.com/JonCubed/angular2-ngrx-tour-of-heroes-aspnet-core-vs2015) - Jonathan Kuleff
 
 ### Middleware
 * [store-saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan

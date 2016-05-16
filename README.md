@@ -34,6 +34,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Angular 2 and the Single Immutable State Tree](https://speakerdeck.com/cironunes/angular-2-and-the-single-immutable-state-tree) - Ciro Nunes
 
 ### Videos and Lessons
+* [Build Redux Style Applications with Angular2, RxJS, and ngrx/store](https://egghead.io/series/building-a-time-machine-with-angular-2-and-rxjs) - John Linquist
 * [Step-by-Step Async JavaScript with RxJS](https://egghead.io/series/step-by-step-async-javascript-with-rxjs) - John Lindquist
 * [RxJS Lessons from Ben Lesh](https://egghead.io/instructors/ben-lesh) - Ben Lesh
 * [RxJS Beyond The Basics - Creating Observables From Scratch](https://egghead.io/series/rxjs-beyond-the-basics-creating-observables-from-scratch) - André Staltz
@@ -41,7 +42,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Getting Started With Redux](https://egghead.io/series/getting-started-with-redux) - Dan Abramov
 * [Asynchronous Programming - The End of the Loop](https://egghead.io/series/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
 
-### Repositories and Code Sample
+### Repositories and Code Samples
 * [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic

@@ -1,43 +1,28 @@
 import {Reducer, Action} from "@ngrx/store";
-
-export interface Todo {
-    id: number,
-    text: string,
-    completed: boolean
-}
-
-export const ADD_TODO = 'ADD_TODO';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
-
-const todo : Reducer<Todo> = (state : Todo, action: Action) => {
-    switch(action.type) {
-        case ADD_TODO:
-            return {
-                id: action.payload.id,
-                text: action.payload.text,
-                completed: action.payload.completed
-            };
-        case TOGGLE_TODO:
-            if(state.id !== action.payload.id){
-                return state;
-            }
-            return Object.assign({}, state, {
-                completed: !state.completed
-            });
-        default:
-            return state;
-    }
-};
+import {Todo} from "../common/interfaces";
+import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from "../common/app.actions";
 
 export const todos : Reducer<Todo[]> = (state : Todo[] = [], action: Action) => {
   switch(action.type) {
       case ADD_TODO:
           return [
               ...state,
-              todo(undefined, action)
+              action.payload
           ];
+      
+      case REMOVE_TODO:
+          return state.filter(todo => todo.id !== action.payload);
+            
       case TOGGLE_TODO:
-          return state.map(t => todo(t, action));
+          return state.map(todo => {
+            if(todo.id !== action.payload){
+               return todo;
+            }
+            return Object.assign({}, todo, {
+                complete: !todo.complete
+            });
+          });
+          
       default:
           return state;
   }

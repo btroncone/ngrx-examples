@@ -1,44 +1,28 @@
 import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "@angular/core";
-import {TodoItem} from "./todo-item";
-import {Todo} from "../reducers/todos";
+import {Todo, TodoModel} from "../common/interfaces";
 
 @Component({
     selector: 'todo-list',
-    template: `
-        <button class="pure-button" (click)="visibility.emit('SHOW_ALL')">All</button>
-        <button class="pure-button" (click)="visibility.emit('SHOW_COMPLETED')">Completed</button>
-        <button class="pure-button" (click)="visibility.emit('SHOW_ACTIVE')">Active</button>
-        <div class="pure-control-group">
-            <label for="name">Todo Description:</label>
-            <input #todo type="text" placeholder="Enter Todo...">
-            <span>Completed Todos: {{completedTodos}}/{{totalTodos}}</span>
-        </div>
-        <button class="pure-button pure-button-primary"
-            (click)="createTodo(todo)">
-            Add Todo
-        </button>
+    template: `  
+        <strong>Completed: {{todosModel.completedTodos}}/{{todosModel.totalTodos}}
         <ul>
-            <todo-item
-                *ngFor="#todo of todos"
-                [todo]="todo"
-                (toggleTodo)="toggleTodo.emit($event)">
-            </todo-item>
+            <li class="margin-t-20" *ngFor="let todo of todosModel.filteredTodos">
+                <strong [class.complete]="todo.complete">{{todo.description}}</strong>
+                <button class="pure-button pure-button-primary"
+                    (click)="toggleTodo.emit(todo.id)">
+                    {{todo.complete ? 'Undo' : 'Complete'}}
+                </button>
+                <button class="pure-button button-error"
+                    (click)="removeTodo.emit(todo.id)">
+                    Remove
+                </button>
+            </li>
         </ul>
-
     `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    directives: [TodoItem]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoList{
-    @Input() todos : Todo[];
-    @Input() completedTodos : number;
-    @Input() totalTodos : number;
-    @Output() addTodo : EventEmitter<string> = new EventEmitter<string>();
-    @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
-    @Output() visibility: EventEmitter<string> = new EventEmitter<string>();
-
-    createTodo(element){
-        this.addTodo.emit(element.value);
-        element.value = "";
-    }
+    @Input() todosModel : TodoModel[];
+    @Output() removeTodo: EventEmitter<number> = new EventEmitter<number>();
+    @Output() toggleTodo: EventEmitter<number> = new EventEmitter<number>();
 }

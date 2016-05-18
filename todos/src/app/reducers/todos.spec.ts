@@ -1,4 +1,5 @@
-import {todos, Todo} from "./todos";
+import {todos} from "./todos";
+import {Todo} from "../common/interfaces";
 //had issue with jasmine typing conflicts, this is temporary workaround
 declare var it, expect, describe, toBe;
 
@@ -8,7 +9,7 @@ describe('The counter reducer', () => {
             {
                 id: 1,
                 text: 'Test',
-                completed: false
+                complete: false
             }
         ];
         const actual = todos(state, {type: 'INVALID_ACTION', payload: {}});
@@ -21,25 +22,25 @@ describe('The counter reducer', () => {
             {
                 id: 1,
                 text: 'Test',
-                completed: false
+                complete: false
             }
         ];
         const expectedState : Todo[] = [
             {
                 id: 1,
                 text: 'Test',
-                completed: false
+                complete: false
             },
             {
                 id: 2,
                 text: 'New Todo',
-                completed: false
+                complete: false
             }
         ];
         const newTodo : Todo = {
                 id: 2,
                 text: 'New Todo',
-                completed: false
+                complete: false
         };
         const actual = todos(initialState, {type: 'ADD_TODO', payload: newTodo});
         const expected = expectedState;
@@ -51,7 +52,7 @@ describe('The counter reducer', () => {
             {
                 id: 1,
                 text: 'Test',
-                completed: false
+                complete: false
             }
         ];
         const todoToToggle = {
@@ -61,7 +62,7 @@ describe('The counter reducer', () => {
         };
         const [actual] = todos(state, {type: 'TOGGLE_TODO', payload: todoToToggle});
         const expected = true;
-        expect(actual.completed).toBe(expected);
+        expect(actual.complete).toBe(expected);
     });
 
 });

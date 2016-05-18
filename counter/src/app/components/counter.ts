@@ -29,7 +29,7 @@ export class Counter{
         this.counter$ = this.store.select<number>('counter')
     }
     /*
-        This only way to modify state in store is through dispatched actions.
+        The only way to modify state in store is through dispatched actions.
         Actions require a type (string) and optional payload.
         This type will match up to a case in one of your application reducers,
         specifying how this action will create a new representation

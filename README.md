@@ -34,6 +34,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Angular 2 and the Single Immutable State Tree](https://speakerdeck.com/cironunes/angular-2-and-the-single-immutable-state-tree) - Ciro Nunes
 
 ### Videos and Lessons
+* [Build Redux Style Applications with Angular2, RxJS, and ngrx/store](https://egghead.io/series/building-a-time-machine-with-angular-2-and-rxjs) - John Linquist
 * [Step-by-Step Async JavaScript with RxJS](https://egghead.io/series/step-by-step-async-javascript-with-rxjs) - John Lindquist
 * [RxJS Lessons from Ben Lesh](https://egghead.io/instructors/ben-lesh) - Ben Lesh
 * [RxJS Beyond The Basics - Creating Observables From Scratch](https://egghead.io/series/rxjs-beyond-the-basics-creating-observables-from-scratch) - André Staltz
@@ -41,13 +42,14 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Getting Started With Redux](https://egghead.io/series/getting-started-with-redux) - Dan Abramov
 * [Asynchronous Programming - The End of the Loop](https://egghead.io/series/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
 
-### Repositories and Code Sample
+### Repositories and Code Samples
 * [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald
 * [Angular2 Seed with ngrx-store, store-saga and ngrx-DevTools](https://github.com/Lube/angular2-seed) - Sebastian Luberriaga
 * [NgRx Dev Tools First Look](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) - Rob Wormald
+* [Tour of Heroes](https://github.com/JonCubed/angular2-ngrx-tour-of-heroes-aspnet-core-vs2015) - Jonathan Kuleff
 
 ### Middleware
 * [store-saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan
@@ -79,10 +81,48 @@ Project builds are a stripped down version of [Angular Class Webpack Starter](ht
 
 ##Examples
 
-* Counter ([source](https://github.com/btroncone/ngrx-examples/tree/master/counter))
-* Todos ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos))
-* Async ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
-* Todos with Undo/Redo ([based off example](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview)) ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos-undo-redo))
-* Shopping Cart - ([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))
-* Real World - In Progress!
-* Much more to come!
+### Counter
+([source](https://github.com/btroncone/ngrx-examples/tree/master/counter))
+#####Summary
+A counter which can be incremented, decremented, with the option to increment or decrement async.
+#####Demonstrates
+1. Creating a basic reducer
+2. Selecting a slice of state 
+3. Using the async pipe
+4. Dispatching actions from a component
+
+### Todos
+([source](https://github.com/btroncone/ngrx-examples/tree/master/todos))
+#####Summary
+Basic todo application with add, remove, and toggle complete functionality. 
+#####Demonstrates
+1. Initial reducer state
+2. Managing arrays in reducers
+3. Multiple reducers
+4. Combining data from two reducers to project state for view
+
+### Todos with Undo/Redo
+([source](https://github.com/btroncone/ngrx-examples/tree/master/todos-undo-redo) | [plunker](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview))
+#####Summary
+Same as todos example but with undo/redo functionality.
+#####Demonstrates
+1. Creating a meta-reducer to add undo/redo capability.
+
+### Async 
+([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
+#####Summary
+Request and display the latest Angular or React reddit posts, utilizing the reddit API.
+#####Demonstrates
+1. Handling async actions with RxJS
+2. Conditionally taking action based on current state
+
+### Shopping Cart 
+([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))
+#####Summary
+Coming soon...
+#####Demonstrates
+Coming soon...
+
+### Real World - In Progress!
+
+### More to Come!

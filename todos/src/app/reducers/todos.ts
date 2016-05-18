@@ -1,6 +1,6 @@
 import {Reducer, Action} from "@ngrx/store";
 import {Todo} from "../common/interfaces";
-import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from "../common/app.actions";
+import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from "../common/actions";
 
 export const todos : Reducer<Todo[]> = (state : Todo[] = [], action: Action) => {
   switch(action.type) {

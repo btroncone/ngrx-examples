@@ -6,7 +6,7 @@ import {Store} from '@ngrx/store';
 import {Devtools} from '@ngrx/devtools';
 import {AppState, Todo, TodoModel} from "./common/interfaces";
 import {Observable} from "rxjs/Observable";
-import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from './common/app.actions';
+import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from './common/actions';
 
 @Component({
 	selector: `todo-app`,

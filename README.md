@@ -119,9 +119,11 @@ Request and display the latest Angular or React reddit posts, utilizing the redd
 ### Shopping Cart 
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))
 #####Summary
-Coming soon...
+Request sample inventory, add and remove items from shopping cart, checkout.
 #####Demonstrates
-Coming soon...
+1. Multiple Reducers
+2. Handling effects with store-saga
+3. Creating and applying selectors for state projection with `let`
 
 ### Real World - In Progress!
 

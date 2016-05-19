@@ -39,6 +39,7 @@ import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from './common/actions';
 })
 export class TodoApp {
 	public todosModel$ : Observable<TodoModel>;
+	//faking an id for demo purposes
 	private id: number = 0;
 	
 	constructor(
@@ -46,7 +47,13 @@ export class TodoApp {
 	){
 		const todos$ = _store.select<Observable<Todo[]>>('todos');
 		const visibilityFilter$ = _store.select('visibilityFilter');
-		
+		/*
+			Each time todos or visibilityFilter emits a new value, get the last emitted value from the other observable.
+			This projection could be moved into a service or exported independantly and applied with the 'let' operator.
+			For more on projecting state: https://gist.github.com/btroncone/a6e4347326749f938510#projecting-state-for-view-with-combinelatest-and-withlatestfrom
+			For more on selectors: https://gist.github.com/btroncone/a6e4347326749f938510#extracting-selectors-for-reuse
+			For more on combineLatest: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#combinelatest
+		*/
 		this.todosModel$ = Observable
 			.combineLatest(
 				todos$,
@@ -60,7 +67,12 @@ export class TodoApp {
 				}
 			);
 	}
-	
+	/*
+		All state updates occur through dispatched actions.
+		For demo purpose we are dispatching actions from container component but this could just as easily be done in services, or handled with ngrx/effect.
+		The store can also be subscribed directly to 'action streams' for the same result.
+		ex: action$.subscribe(_store)
+	*/
 	addTodo(description : string){
 		this._store.dispatch({type: ADD_TODO, payload: {
 			id: ++this.id,

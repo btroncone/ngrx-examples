@@ -28,20 +28,29 @@ export class RedditActions{
             .filter((action : Action) => action.type === INVALIDATE_REDDIT);
 
         const fetchPostsIfNeeded = selectReddit
+            /*
+                Also get latest from given observable.
+                For more on withLatestFrom: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#withLatestFrom
+            */
             .withLatestFrom(posts$, (action, post) => ({
                 shouldFetch: this.shouldFetchPosts(post, action.payload),
                 action
             }))
             .filter(({action, shouldFetch}) => shouldFetch)
 
-        //noinspection TypeScriptUnresolvedVariable,TypeScriptValidateTypes
         const fetchPosts = fetchPostsIfNeeded
             .do(({action}) => { _store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}})})
-            //if data does not exist, fetch posts
+            /*
+                If data does not exist, fetch posts.
+                For more on flatMap: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#flatMap
+            */
             .flatMap(({action}) => _reddit.fetchPosts(action.payload),
                 ({action}, {data}) => ({ type: RECEIVE_POSTS, payload: {reddit: action.payload, data}}));
 
         Observable
+            /*
+                For more on merge: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#merge
+            */
             .merge(selectReddit, invalidateReddit, fetchPosts)
             .subscribe(_store);
     }

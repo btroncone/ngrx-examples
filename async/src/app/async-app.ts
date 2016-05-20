@@ -1,5 +1,5 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {RedditModel} from "./components/reddit-model";
+import {RedditModel} from "./services/reddit-model";
 import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";

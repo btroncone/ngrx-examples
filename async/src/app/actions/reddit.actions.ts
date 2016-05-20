@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Store, Action} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Subject} from "rxjs/Subject";
 import {Reddit} from "../services/reddit";
 import {
     REQUEST_POSTS,
@@ -13,14 +13,16 @@ import {
 
 @Injectable()
 export class RedditActions{
-    private actions$: BehaviorSubject<Action> = new BehaviorSubject({type: null, payload: null});
+    private actions$: Subject<Action> = new Subject<Action>();
 
     constructor(
         private _store : Store<any>,
         private _reddit : Reddit
     ){
         const posts$ = _store.select(state => state.postsByReddit);
-
+        /*
+            In future examples we will see how to handle side-effects with ngrx/effect.
+        */
         const selectReddit = this.actions$
             .filter((action : Action) => action.type === SELECT_REDDIT);
     
@@ -29,23 +31,21 @@ export class RedditActions{
 
         const fetchPostsIfNeeded = selectReddit
             /*
-                Also get latest from given observable.
+                Grab last emitted value from given observable.
                 For more on withLatestFrom: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#withLatestFrom
             */
-            .withLatestFrom(posts$, (action, post) => ({
-                shouldFetch: this.shouldFetchPosts(post, action.payload),
-                action
-            }))
-            .filter(({action, shouldFetch}) => shouldFetch)
+            .withLatestFrom(posts$)
+            .filter(([action, posts]) => this.shouldFetchPosts(posts, action.payload))
 
         const fetchPosts = fetchPostsIfNeeded
-            .do(({action}) => { _store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}})})
+            .do(([action]) => { _store.dispatch({type : REQUEST_POSTS, payload: {reddit: action.payload}})})
             /*
                 If data does not exist, fetch posts.
                 For more on flatMap: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35#flatMap
             */
-            .flatMap(({action}) => _reddit.fetchPosts(action.payload),
-                ({action}, {data}) => ({ type: RECEIVE_POSTS, payload: {reddit: action.payload, data}}));
+            .flatMap(([action]) => _reddit
+                                    .fetchPosts(action.payload)
+                                    .map(({data}) => ({ type: RECEIVE_POSTS, payload: {reddit: action.payload, data}})));
 
         Observable
             /*

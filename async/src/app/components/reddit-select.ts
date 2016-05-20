@@ -5,7 +5,7 @@ import {Component, Output, EventEmitter} from "@angular/core";
     template: `
     <div>
         <select #selectList (change)="redditSelect.emit(selectList.value)">
-            <option *ngFor="#reddit of availableReddits">
+            <option *ngFor="let reddit of availableReddits">
                 {{reddit}}
             </option>
         </select>

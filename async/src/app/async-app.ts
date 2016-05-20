@@ -1,5 +1,5 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {RedditViewModel} from "./components/reddit-viewmodel";
+import {RedditModel} from "./components/reddit-model";
 import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
@@ -18,32 +18,32 @@ import {Devtools} from '@ngrx/devtools';
 			</div>
 		</div>
 		<div class="content pure-u-1 pure-u-md-3-4">
-		<h2>Currently Displaying: {{viewModel.selectedReddit$ | async}}</h2>
-		<h5>Last Updated: {{(viewModel.lastUpdated$ | async) | date:'mediumTime'}}</h5>
+		<h2>Currently Displaying: {{redditModel.selectedReddit$ | async}}</h2>
+		<h5>Last Updated: {{(redditModel.lastUpdated$ | async) | date:'mediumTime'}}</h5>
 			<reddit-select
 				(redditSelect)="redditActions.selectReddit($event)"
 				>
 			</reddit-select>
 			<refresh-button
-				[selectedReddit]="(viewModel.selectedReddit$ | async)"
+				[selectedReddit]="(redditModel.selectedReddit$ | async)"
 				(invalidateReddit)="redditActions.invalidateReddit($event)">
 			</refresh-button>
 			<reddit-list
-				[posts]="(viewModel.posts$ | async)"
-				[isFetching]="(viewModel.isFetching$ | async)">
+				[posts]="(redditModel.posts$ | async)"
+				[isFetching]="(redditModel.isFetching$ | async)">
 			</reddit-list>
 		</div>
 	</div>
 	<ngrx-devtools></ngrx-devtools>
 	`,
     directives: [RedditList, RedditSelect, RefreshButton, Devtools],
-	providers: [RedditViewModel],
+	providers: [RedditModel],
 	pipes: [DatePipe, AsyncPipe],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AsyncApp {
 	constructor(
-		private viewModel: RedditViewModel,
+		private redditModel: RedditModel,
 		private redditActions: RedditActions
 	){}
 

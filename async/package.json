@@ -21,6 +21,7 @@
   "dependencies": {
     "@ngrx/store": "^2.0.0",
     "@ngrx/core": "^1.0.0",
+    "@ngrx/effects": "^1.0.0",
     "@angular/common": "^2.0.0-rc.1",
     "@angular/compiler": "^2.0.0-rc.1",
     "@angular/upgrade": "^2.0.0-rc.1",
@@ -38,6 +39,7 @@
     "url": "https://github.com/btroncone/ngrx-examples"
   },
   "devDependencies": {
+    "ngrx-store-logger": "0.1.2",
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.35.0",
     "es7-reflect-metadata": "^1.6.0",

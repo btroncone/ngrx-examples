@@ -1,10 +1,11 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
+import {Store} from '@ngrx/store';
 import {RedditModel} from "./services/reddit-model";
-import {RedditActions} from "./actions/reddit.actions";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
 import {DatePipe, AsyncPipe} from "@angular/common";
 import {RefreshButton} from "./components/refresh-button";
+import {SELECT_REDDIT, INVALIDATE_REDDIT} from "./reducers/reddit";
 
 @Component({
 	selector: `async-app`,
@@ -20,12 +21,12 @@ import {RefreshButton} from "./components/refresh-button";
 		<h2>Currently Displaying: {{redditModel.selectedReddit$ | async}}</h2>
 		<h5>Last Updated: {{(redditModel.lastUpdated$ | async) | date:'mediumTime'}}</h5>
 			<reddit-select
-				(redditSelect)="redditActions.selectReddit($event)"
+				(redditSelect)="selectReddit($event)"
 				>
 			</reddit-select>
 			<refresh-button
 				[selectedReddit]="(redditModel.selectedReddit$ | async)"
-				(invalidateReddit)="redditActions.invalidateReddit($event)">
+				(invalidateReddit)="invalidateReddit($event)">
 			</refresh-button>
 			<reddit-list
 				[posts]="(redditModel.posts$ | async)"
@@ -36,13 +37,20 @@ import {RefreshButton} from "./components/refresh-button";
 	`,
     directives: [RedditList, RedditSelect, RefreshButton],
 	providers: [RedditModel],
-	pipes: [DatePipe, AsyncPipe],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AsyncApp {
 	constructor(
 		private redditModel: RedditModel,
-		private redditActions: RedditActions
+		private _store : Store<any>
 	){}
-
+	
+	selectReddit(reddit: string){
+        this._store.dispatch({type: SELECT_REDDIT, payload: reddit});
+    }
+	
+	invalidateReddit(reddit : string){
+        this._store.dispatch({type: INVALIDATE_REDDIT, payload: {reddit}});
+        this._store.dispatch({type: SELECT_REDDIT, payload: reddit});
+    }
 }

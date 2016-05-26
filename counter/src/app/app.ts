@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Counter} from './components/counter';
-import {Devtools} from '@ngrx/devtools';
 
 @Component({
 	selector: `app`,
@@ -16,8 +15,7 @@ import {Devtools} from '@ngrx/devtools';
 			<counter></counter>
 		</div>
 	</div>
-	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [Counter, Devtools]
+    directives: [Counter]
 })
 export class App {}

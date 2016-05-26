@@ -5,7 +5,6 @@ import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
 import {DatePipe, AsyncPipe} from "@angular/common";
 import {RefreshButton} from "./components/refresh-button";
-import {Devtools} from '@ngrx/devtools';
 
 @Component({
 	selector: `async-app`,
@@ -34,9 +33,8 @@ import {Devtools} from '@ngrx/devtools';
 			</reddit-list>
 		</div>
 	</div>
-	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [RedditList, RedditSelect, RefreshButton, Devtools],
+    directives: [RedditList, RedditSelect, RefreshButton],
 	providers: [RedditModel],
 	pipes: [DatePipe, AsyncPipe],
 	changeDetection: ChangeDetectionStrategy.OnPush

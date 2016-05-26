@@ -1,4 +1,4 @@
-import {Reducer, Action} from "@ngrx/store";
+import {ActionReducer, Action} from "@ngrx/store";
 
 export interface RedditPosts {
     isFetching: boolean,
@@ -13,7 +13,7 @@ export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 
-export const selectedReddit : Reducer<string> = (state : string = 'Angular 2', action: Action) => {
+export const selectedReddit : ActionReducer<string> = (state : string = 'Angular 2', action: Action) => {
     switch(action.type) {
         case SELECT_REDDIT:
             return action.payload;
@@ -22,7 +22,7 @@ export const selectedReddit : Reducer<string> = (state : string = 'Angular 2', a
     }
 };
 
-const posts : Reducer<RedditPosts> = (state : RedditPosts = {
+const posts : ActionReducer<RedditPosts> = (state : RedditPosts = {
     isFetching: false,
     didInvalidate: false,
     posts: []
@@ -49,7 +49,7 @@ const posts : Reducer<RedditPosts> = (state : RedditPosts = {
   }
 };
 
-export const postsByReddit : Reducer<RedditPosts> = (state: {} = {}, action : Action) => {
+export const postsByReddit : ActionReducer<RedditPosts> = (state: {} = {}, action : Action) => {
     switch (action.type) {
         case INVALIDATE_REDDIT:
         case RECEIVE_POSTS:

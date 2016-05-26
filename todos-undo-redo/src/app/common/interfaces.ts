@@ -1,4 +1,4 @@
-import {Reducer} from "@ngrx/store";
+import {ActionReducer} from "@ngrx/store";
 
 export interface AppState {
     Todos: Todo[],
@@ -9,7 +9,7 @@ export interface Todo {
     id: number,
     text: string,
     complete: boolean
-};
+}
 
 export interface TodoModel {
     filteredTodos: Todo[],
@@ -19,6 +19,6 @@ export interface TodoModel {
 
 export interface UndoableState{
     past: any[],
-    present: Reducer<any>,
+    present: ActionReducer<any>,
     future: any[]
 }

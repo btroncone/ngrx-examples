@@ -3,7 +3,6 @@ import {TodoList} from "./components/todo-list";
 import {TodoInput} from "./components/todo-input";
 import {FilterSelect} from "./components/filter-select";
 import {Store} from '@ngrx/store';
-import {Devtools} from '@ngrx/devtools';
 import {AppState, Todo, TodoModel} from "./common/interfaces";
 import {Observable} from "rxjs/Observable";
 import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO, UNDO, REDO} from './common/actions';
@@ -40,9 +39,8 @@ import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO, UNDO, REDO} from './common/actions';
 			</todo-list>
 		</div>
 	</div>
-	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [TodoList, TodoInput, FilterSelect, Devtools],
+    directives: [TodoList, TodoInput, FilterSelect],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoApp {
@@ -59,7 +57,7 @@ export class TodoApp {
 			.combineLatest(
 				todos$,
 				visibilityFilter$,
-				({past = [], present = [], future = []}, visibilityFilter : any) => {
+				({present = []}, visibilityFilter : any) => {
 					return {
 						filteredTodos: present.filter(visibilityFilter),
 						totalTodos: present.length,

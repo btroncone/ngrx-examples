@@ -44,6 +44,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 
 ### Repositories and Code Samples
 * [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
+* [NgRx Example](https://github.com/fxck/ngrx-example) - Aleš
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald
@@ -51,11 +52,10 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [NgRx Dev Tools First Look](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) - Rob Wormald
 * [Tour of Heroes](https://github.com/JonCubed/angular2-ngrx-tour-of-heroes-aspnet-core-vs2015) - Jonathan Kuleff
 
-### Middleware
-* [store-saga - Rx implementation of redux-saga for @ngrx/store](https://github.com/MikeRyan52/store-saga) - Mike Ryan
+### Utilities
 * [ngrx-store-localstorage - Sync local storage with ngrx state slices](https://github.com/btroncone/ngrx-store-localstorage) - Brian Troncone
 * [ngrx-store-logger - Advanced action/state logging for @ngrx/store applications](https://github.com/btroncone/ngrx-store-logger) - Brian Troncone
-* [ngrx-store-router - Sync between the current Angular 2 Router URL and @ngrx/store](https://github.com/CodeSequence/ngrx-store-router) - Brandon Roberts
+
 
 ##Getting Started
 ```bash

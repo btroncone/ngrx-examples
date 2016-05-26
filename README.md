@@ -113,8 +113,8 @@ Same as todos example but with undo/redo functionality.
 #####Summary
 Request and display the latest Angular or React reddit posts, utilizing the reddit API.
 #####Demonstrates
-1. Handling async actions with RxJS
-2. Conditionally taking action based on current state
+1. Handling async actions with @ngrx/effects
+2. Conditionally making requests based on current state
 
 ### Shopping Cart 
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))

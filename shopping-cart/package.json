@@ -20,7 +20,9 @@
   "author": "thomas.sattlecker@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@ngrx/store": "^1.5.0",
+    "@ngrx/store": "^2.0.0",
+    "@ngrx/core": "^1.0.0",
+    "@ngrx/effects":"^1.0.1",
     "@angular/common": "^2.0.0-rc.1",
     "@angular/compiler": "^2.0.0-rc.1",
     "@angular/upgrade": "^2.0.0-rc.1",
@@ -31,7 +33,6 @@
     "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
     "core-js": "^2.1.5",
     "rxjs": "5.0.0-beta.6",
-    "store-saga": "^1.0.0-beta.11",
     "zone.js": "0.6.12"
   },
   "repository": {
@@ -39,7 +40,6 @@
     "url": "https://github.com/btroncone/ngrx-examples"
   },
   "devDependencies": {
-    "@ngrx/devtools": "^1.4.0",
     "compression-webpack-plugin": "^0.3.0",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",

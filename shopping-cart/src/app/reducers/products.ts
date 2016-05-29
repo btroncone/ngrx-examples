@@ -1,4 +1,4 @@
-import {Reducer, Action} from "@ngrx/store";
+import {ActionReducer, Action} from "@ngrx/store";
 
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REQUEST_PRODUCTS = 'REQUEST_PRODUCTS';
@@ -12,7 +12,7 @@ export interface IProduct {
     title: string;
 }
 
-export const products: Reducer<{}> = (state: any = {}, action: Action) => {
+export const products: ActionReducer<{}> = (state: any = {}, action: Action) => {
     switch (action.type) {
         case RECEIVED_PRODUCTS:
             return Object.assign({},

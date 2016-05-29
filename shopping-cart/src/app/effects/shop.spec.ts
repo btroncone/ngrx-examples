@@ -1,34 +1,39 @@
 import '../../test_harness';
 import {Injector, Provider, ReflectiveInjector} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {provideStore, Store, Action, Dispatcher, usePostMiddleware} from '@ngrx/store';
-import {Saga, SagaRunner, schedulerProvider, SagaScheduler, createSaga, whenAction, installSagaMiddleware} from 'store-saga';
-import {SagaTester} from 'store-saga/testing';
+import {provideStore, Store, Dispatcher} from '@ngrx/store';
+import {
+    MOCK_EFFECTS_PROVIDERS,
+    MockStateUpdates
+} from '@ngrx/effects/testing';
 
 import {products, REQUEST_PRODUCTS, RECEIVED_PRODUCTS} from '../reducers/products';
 import {CHECKOUT_REQUEST, CHECKOUT_SUCCESS} from '../reducers/cart';
 import {jsonProducts} from '../../api/productsJSON';
 
-import sagas from './shop';
+import {ShopEffects} from './shop';
 
 
 describe('Shop Effect LOAD', () => {
-    let sagaTester: SagaTester;
+    let shop: ShopEffects;
+    let updates$: MockStateUpdates;
 
-    beforeEach(() => {
+    beforeEach(function () {
         const injector = ReflectiveInjector.resolveAndCreate([
-            SagaTester, schedulerProvider
+            ShopEffects,
+            MOCK_EFFECTS_PROVIDERS,
+            // Mock out other dependencies (like Http) here
         ]);
 
-        sagaTester = injector.get(SagaTester);
+        shop = injector.get(ShopEffects);
+        updates$ = injector.get(MockStateUpdates);
     });
 
     it('should dispatch products list', (done) => {
 
-        sagaTester.run(sagas[0]);
-        sagaTester.sendAction({ type: REQUEST_PRODUCTS });
+        updates$.sendAction({ type: REQUEST_PRODUCTS });
 
-        sagaTester.output
+        shop.load$
             .filter(Boolean)
             .subscribe(last => {
                 expect(last).toEqual({ type: RECEIVED_PRODUCTS, payload: jsonProducts });
@@ -38,10 +43,9 @@ describe('Shop Effect LOAD', () => {
 
     it('should checkout products', (done) => {
 
-        sagaTester.run(sagas[1]);
-        sagaTester.sendAction({ type: CHECKOUT_REQUEST, payload: [0, 1] });
+        updates$.sendAction({ type: CHECKOUT_REQUEST, payload: [0, 1] });
 
-        sagaTester.output
+        shop.checkout$
             .filter(Boolean)
             .subscribe(last => {
                 expect(last).toEqual({ type: CHECKOUT_SUCCESS, payload: 0 });

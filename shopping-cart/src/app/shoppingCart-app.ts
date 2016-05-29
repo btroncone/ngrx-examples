@@ -9,7 +9,6 @@ import {IProduct} from "./reducers/products";
 import {productSelector, productAsArraySelector} from "./selectors/product.selector";
 import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
 import {AsyncPipe} from "@angular/common";
-import {Devtools} from '@ngrx/devtools';
 import { Observable, Subject } from 'rxjs';
 import {Store, Action} from "@ngrx/store";
 
@@ -34,9 +33,8 @@ import {Store, Action} from "@ngrx/store";
 			</cart-list>
 		</div>
 	</div>
-	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [ProductList, CartList, Devtools],
+    directives: [ProductList, CartList],
     pipes: [AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

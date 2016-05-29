@@ -122,7 +122,7 @@ Request and display the latest Angular or React reddit posts, utilizing the redd
 Request sample inventory, add and remove items from shopping cart, checkout.
 #####Demonstrates
 1. Multiple Reducers
-2. Handling effects with store-saga
+2. Handling effects with @ngrx/effects
 3. Creating and applying selectors for state projection with `let`
 
 ### Real World - In Progress!

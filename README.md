@@ -45,7 +45,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 ### Repositories and Code Samples
 * [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 * [NgRx Example](https://github.com/fxck/ngrx-example) - Aleš
-* [Staffer ngrx/store exampls](https://github.com/sapientglobalmarkets/staffer/tree/master/staffer-ng2-ngrxstore) -Pavan Podila
+* [Staffer ngrx/store example](https://github.com/sapientglobalmarkets/staffer/tree/master/staffer-ng2-ngrxstore) -Pavan Podila
 * [NgRx Sample Project Utilizing Immutable and Normalizr](https://github.com/ngrx/angular2-store-example) - Cody Lundquist
 * [NgRx Auth Example](https://github.com/SekibOmazic/ngrx-auth-example) - Sekib Omazic
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald

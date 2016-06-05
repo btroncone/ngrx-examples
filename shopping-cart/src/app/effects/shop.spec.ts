@@ -7,7 +7,7 @@ import {
     MockStateUpdates
 } from '@ngrx/effects/testing';
 
-import {products, REQUEST_PRODUCTS, RECEIVED_PRODUCTS} from '../reducers/products';
+import productsReducer, * as fromProducts from '../reducers/products';
 import {CHECKOUT_REQUEST, CHECKOUT_SUCCESS} from '../reducers/cart';
 import {jsonProducts} from '../../api/productsJSON';
 
@@ -31,12 +31,12 @@ describe('Shop Effect LOAD', () => {
 
     it('should dispatch products list', (done) => {
 
-        updates$.sendAction({ type: REQUEST_PRODUCTS });
+        updates$.sendAction({ type: fromProducts.REQUEST_PRODUCTS });
 
         shop.load$
             .filter(Boolean)
             .subscribe(last => {
-                expect(last).toEqual({ type: RECEIVED_PRODUCTS, payload: jsonProducts });
+                expect(last).toEqual({ type: fromProducts.RECEIVED_PRODUCTS, payload: jsonProducts });
                 done();
             });
     });

@@ -8,3 +8,5 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/toArray';
+import 'rxjs/add/operator/select';
+import '@ngrx/core/add/operator/select';

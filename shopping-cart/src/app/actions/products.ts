@@ -1,5 +1,5 @@
-import {Action} from "@ngrx/store";
-import {ADD_TO_CART, REQUEST_PRODUCTS, IProduct} from "../reducers/products";
+import {Action} from '@ngrx/store';
+import {ADD_TO_CART, REQUEST_PRODUCTS, IProduct} from '../reducers/products';
 
 
 export const getProducts = () => {

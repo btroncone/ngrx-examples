@@ -1,16 +1,14 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {ProductList} from "./components/product-list";
-import {CartList} from "./components/cart-list";
+import {ProductList} from './components/product-list';
+import {CartList} from './components/cart-list';
 
-import {getProducts, addToCart} from "./actions/products";
-import {checkout} from "./actions/cart";
-import {IProduct} from "./reducers/products";
+import {getProducts, addToCart} from './actions/products';
+import {checkout} from './actions/cart';
 
-import {productSelector, productAsArraySelector} from "./selectors/product.selector";
-import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
-import {AsyncPipe} from "@angular/common";
-import { Observable, Subject } from 'rxjs';
-import {Store, Action} from "@ngrx/store";
+import {getProductsAsArry, getCalculatedCartList} from './reducers';
+import {AsyncPipe} from '@angular/common';
+import { Subject } from 'rxjs';
+import {Store, Action} from '@ngrx/store';
 
 @Component({
     selector: `shopping-cart-app`,
@@ -48,13 +46,13 @@ export class ShoppingCartApp {
     checkoutAction = checkout;
 
     constructor(public store: Store<any>) {
-        this.products = store.let(productAsArraySelector);
-        this.cartList = store.let(calculatedCartList);
+        this.products = store.let(getProductsAsArry());
+        this.cartList = store.let(getCalculatedCartList());
 
         this.actions$.subscribe(store);
         this.actions$.next(getProducts());
     }
-    
+
     ngOnDestroy() {
         this.store.unsubscribe();
     }

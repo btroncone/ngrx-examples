@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy, Output, Input, EventEmitter} from "@angular/core";
-import {IProduct} from "../reducers/products";
+import {Component, ChangeDetectionStrategy, Output, Input, EventEmitter} from '@angular/core';
+import {IProduct} from '../reducers/products';
 
 @Component({
     selector: 'product-item',
@@ -15,7 +15,7 @@ import {IProduct} from "../reducers/products";
     `,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductItem{
+export class ProductItem {
     @Input() product: IProduct;
     @Output() addToCart: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 }

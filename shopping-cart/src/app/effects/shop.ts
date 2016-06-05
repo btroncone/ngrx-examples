@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import {Subject} from "rxjs/Subject";
-import { Action } from '@ngrx/store';
 import { StateUpdates, Effect } from '@ngrx/effects'
 import 'rxjs';
 
 import {REQUEST_PRODUCTS, RECEIVED_PRODUCTS} from '../reducers/products';
-import {CHECKOUT_REQUEST, CHECKOUT_FAILURE, CHECKOUT_SUCCESS} from '../reducers/cart';
+import {CHECKOUT_REQUEST, CHECKOUT_SUCCESS} from '../reducers/cart';
 import * as shop from '../../api/shop';
 
 @Injectable()

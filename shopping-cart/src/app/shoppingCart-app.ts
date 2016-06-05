@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {ProductList} from "./components/product-list";
 import {CartList} from "./components/cart-list";
 
@@ -8,8 +8,7 @@ import {IProduct} from "./reducers/products";
 
 import {productSelector, productAsArraySelector} from "./selectors/product.selector";
 import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
-import {AsyncPipe} from "angular2/common";
-import {Devtools} from '@ngrx/devtools';
+import {AsyncPipe} from "@angular/common";
 import { Observable, Subject } from 'rxjs';
 import {Store, Action} from "@ngrx/store";
 
@@ -34,9 +33,8 @@ import {Store, Action} from "@ngrx/store";
 			</cart-list>
 		</div>
 	</div>
-	<ngrx-devtools></ngrx-devtools>
 	`,
-    directives: [ProductList, CartList, Devtools],
+    directives: [ProductList, CartList],
     pipes: [AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -1,11 +1,17 @@
-import {Reducer, Action} from "@ngrx/store";
+import {ActionReducer, Action} from "@ngrx/store";
+import {SHOW_COMPLETED, SHOW_ACTIVE, SHOW_ALL} from "../common/actions";
 
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
-
-export const visibilityFilter : Reducer<string> = (state : string = 'SHOW_ALL', action : Action) => {
+export const visibilityFilter : ActionReducer<any> = (state : any = t => t, action : Action) => {
     switch(action.type){
-        case SET_VISIBILITY_FILTER:
-            return action.payload;
+        case SHOW_COMPLETED:
+            return todo => todo.complete;
+        
+        case SHOW_ACTIVE:
+            return todo => !todo.complete;
+        
+        case SHOW_ALL:
+            return todo => todo;
+            
         default:
             return state;
     }

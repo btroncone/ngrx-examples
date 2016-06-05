@@ -10,7 +10,7 @@ var HtmlWebpackPlugin  = require('html-webpack-plugin');
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 var metadata = {
-  title: 'NgRx Example #2 - Todos',
+  title: 'NgRx Example #4 - Todos Undo/Redo',
   baseUrl: '/',
   host: 'localhost',
   port: 3000,

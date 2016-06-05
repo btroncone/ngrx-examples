@@ -1,10 +1,10 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import {RedditPosts} from "../reducers/reddit";
 
 @Injectable()
-export class RedditViewModel{
+export class RedditModel{
     public selectedReddit$ : Observable<string>;
     public posts$ : Observable<Array<any>>;
     public isFetching$: Observable<boolean>;
@@ -13,7 +13,7 @@ export class RedditViewModel{
     constructor(
         private store: Store<any>
     ){
-        const viewModel$ = Observable.combineLatest(
+        const model$ = Observable.combineLatest(
             store.select('postsByReddit'),
             store.select('selectedReddit'),
             (postsByReddit : Array<any>, selectedReddit : string) => {
@@ -35,9 +35,9 @@ export class RedditViewModel{
             }
         ).share();
         //expose to view
-        this.selectedReddit$ = viewModel$.map(vm => vm.selectedReddit);
-        this.posts$ = viewModel$.map(vm => vm.posts);
-        this.isFetching$ = viewModel$.map(vm => vm.isFetching);
-        this.lastUpdated$ = viewModel$.map(vm => vm.lastUpdated);
+        this.selectedReddit$ = model$.map(vm => vm.selectedReddit);
+        this.posts$ = model$.map(vm => vm.posts);
+        this.isFetching$ = model$.map(vm => vm.isFetching);
+        this.lastUpdated$ = model$.map(vm => vm.lastUpdated);
     }
 }

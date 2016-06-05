@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input} from "angular2/core";
+import {Component, ChangeDetectionStrategy, Input} from "@angular/core";
 import {RedditPosts} from "../reducers/reddit";
 
 @Component({
@@ -7,7 +7,7 @@ import {RedditPosts} from "../reducers/reddit";
         <div>
             <strong [hidden]="!isFetching">Loading...</strong>
             <ul>
-                <li *ngFor="#post of posts">
+                <li *ngFor="let post of posts">
                     <a [href]="post.url">{{post.title}}</a>
                 </li>
             </ul>

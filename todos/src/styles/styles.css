@@ -181,3 +181,8 @@ h3 {
 .margin-t-20{
     margin-top:20px;
 }
+
+.button-error {
+  background: rgb(202, 60, 60); /* this is a maroon */
+}
+

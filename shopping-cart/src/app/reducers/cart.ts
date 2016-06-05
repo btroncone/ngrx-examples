@@ -1,4 +1,4 @@
-import {Reducer, Action} from "@ngrx/store";
+import {ActionReducer, Action} from "@ngrx/store";
 import {ADD_TO_CART} from './products';
 
 export const CHECKOUT_REQUEST = 'CHECKOUT_REQUEST'
@@ -14,7 +14,7 @@ const initialState: ICart = {
     productIds: [], quantityById: {}
 }
 
-export const cart: Reducer<ICart> = (state: ICart = initialState, action: Action) => {
+export const cart: ActionReducer<ICart> = (state: ICart = initialState, action: Action) => {
     switch (action.type) {
         case ADD_TO_CART:
             if (state.productIds.indexOf(action.payload) !== -1) {

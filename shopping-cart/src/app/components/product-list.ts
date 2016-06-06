@@ -1,9 +1,7 @@
-import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "@angular/core";
-import { Subject, Observable } from 'rxjs';
-import {Store, Action} from "@ngrx/store";
+import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
 
-import {ProductItem} from "./product-item";
-import {IProduct} from "../reducers/products";
+import {ProductItem} from './product-item';
+import {IProduct} from '../reducers/products';
 
 @Component({
     selector: 'product-list',
@@ -22,6 +20,6 @@ import {IProduct} from "../reducers/products";
     directives: [ProductItem]
 })
 export class ProductList {
-    @Input() products: IProduct[];    
+    @Input() products: IProduct[];
     @Output() addToCart = new EventEmitter<IProduct>();
 }

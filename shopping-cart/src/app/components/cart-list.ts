@@ -1,10 +1,5 @@
-import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from "@angular/core";
-import { Observable, Subject } from 'rxjs';
-import {Store, Action} from "@ngrx/store";
-
-import {CartItem} from "./cart-item";
-import {ICart} from "../reducers/cart";
-import {IProduct} from "../reducers/products";
+import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
+import {CartItem} from './cart-item';
 
 @Component({
     selector: 'cart-list',

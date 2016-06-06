@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Output, Input, EventEmitter} from "@angular/core";
+import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
 
 @Component({
     selector: 'cart-item',

@@ -12,14 +12,14 @@ describe('The products reducer', () => {
     });
 
     it('should return received products when RECEIVED_PRODUCTS is dispatched', () => {
-        const state = {
+        const state = null;
+        const actual = productsReducer(state, { type: fromProducts.RECEIVED_PRODUCTS, payload: jsonProducts });
+        const expected = {
             entities: jsonProducts.reduce((obj, product: fromProducts.IProduct) => {
                 obj[product.id] = product;
                 return obj;
             }, {})
         };
-        const actual = productsReducer(state, { type: fromProducts.RECEIVED_PRODUCTS, payload: jsonProducts });
-        const expected = state;
         expect(actual).toEqual(expected);
     });
 

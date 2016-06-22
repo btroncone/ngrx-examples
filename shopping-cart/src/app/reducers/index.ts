@@ -44,12 +44,12 @@ export function getCalculatedCartList() {
     return (state$: Observable<AppState>) => {
         return Observable
             .combineLatest(state$.let(getCartState()), state$.let(getProductEntities()))
-                .map((res: any) => {
-                    return res[0].productIds.map(productId => {
+                .map(([cart, products]: any[]) => {
+                    return cart.productIds.map(productId => {
                         return {
-                            title: res[1][productId].title,
-                            price: res[1][productId].price,
-                            quantity: res[0].quantityById[productId]
+                            title: products[productId].title,
+                            price: products[productId].price,
+                            quantity: cart.quantityById[productId]
                         };
                     });
                 });

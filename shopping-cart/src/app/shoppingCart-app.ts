@@ -33,7 +33,6 @@ import {Store, Action} from '@ngrx/store';
 	</div>
 	`,
     directives: [ProductList, CartList],
-    pipes: [AsyncPipe],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShoppingCartApp {
@@ -51,9 +50,5 @@ export class ShoppingCartApp {
 
         this.actions$.subscribe(store);
         this.actions$.next(getProducts());
-    }
-
-    ngOnDestroy() {
-        this.store.unsubscribe();
     }
 }

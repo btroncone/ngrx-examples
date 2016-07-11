@@ -6,7 +6,6 @@ import {getProducts, addToCart} from './actions/products';
 import {checkout} from './actions/cart';
 
 import {getProductsAsArry, getCalculatedCartList} from './reducers';
-import {AsyncPipe} from '@angular/common';
 import { Subject } from 'rxjs';
 import {Store, Action} from '@ngrx/store';
 

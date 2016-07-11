@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import {RedditModel} from "./services/reddit-model";
 import {RedditSelect} from "./components/reddit-select";
 import {RedditList} from "./components/reddit-list";
-import {DatePipe, AsyncPipe} from "@angular/common";
+import {DatePipe} from "@angular/common";
 import {RefreshButton} from "./components/refresh-button";
 import {SELECT_REDDIT, INVALIDATE_REDDIT} from "./reducers/reddit";
 

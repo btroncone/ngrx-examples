@@ -52,6 +52,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 ### Utilities
 * [ngrx-store-localstorage - Sync local storage with ngrx state slices](https://github.com/btroncone/ngrx-store-localstorage) - Brian Troncone
 * [ngrx-store-logger - Advanced action/state logging for @ngrx/store applications](https://github.com/btroncone/ngrx-store-logger) - Brian Troncone
+* [ngrx-store-freeze - Prevent state from being mutated in @ngrx/store](https://github.com/codewareio/ngrx-store-freeze) - Attila Egyed
 
 
 ##Getting Started

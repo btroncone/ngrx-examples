@@ -123,6 +123,18 @@ Request sample inventory, add and remove items from shopping cart, checkout.
 2. Handling effects with @ngrx/effects
 3. Creating and applying selectors for state projection with `let`
 
+
+### Finances
+([source](https://github.com/btroncone/ngrx-examples/tree/master/finances))
+([tutorial](https://www.pluralsight.com/guides/front-end-javascript/building-a-redux-application-with-angular-2-part-1))
+#####Summary
+Add and remove items financial operations, change currency rates
+#####Demonstrates
+1. Multiple Reducers
+2. Handling effects with @ngrx/effects
+3. Modifying state projection
+4. Using state in pipes
+
 ### Real World - In Progress!
 
 ### More to Come!

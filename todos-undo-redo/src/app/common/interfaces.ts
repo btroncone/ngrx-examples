@@ -17,8 +17,8 @@ export interface TodoModel {
     completedTodos: number
 }
 
-export interface UndoableState{
+export interface UndoableState {
     past: any[],
-    present: ActionReducer<any>,
+    present: any,
     future: any[]
 }

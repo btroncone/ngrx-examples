@@ -2,18 +2,18 @@
 
 [Angular 2](https://angular.io/) + [ngrx](https://github.com/ngrx) examples, inspired by official [redux examples](https://github.com/rackt/redux/tree/master/examples).
 
-##Goal
+## Goal
 
 These examples illustrate how to utilize ngrx within an Angular 2 application. This repository will be actively maintained and updated as new tools and functionality become available and best practices are established.
 
-##Contributions
+## Contributions
 
 As Angular 2 and ngrx are relatively new, patterns and best practices are still being established. Examples found in this repository demonstrate how I (or the project author) would structure the solution but discussion and refinement is always encouraged! Please open an issue, submit a pull request, or drop me a message on [twitter](https://twitter.com/btroncone) to present a different approach or idea. This repository will feature the most solid, agreed upon techniques as they evolve.
 
 Please add any additional Angular 2, ngrx, or reactive programming articles, repositories, or code samples you find useful. I will keep this list as up-to-date as possible!
 
 
-##Additional Resources
+## Additional Resources
 Additional Angular 2, ngrx, and reactive programming articles, repositories, and code samples:
 
 ### Introduction
@@ -21,7 +21,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Reactive Angular 2 with ngrx](https://www.youtube.com/watch?v=mhA7zZ23Odw) - Rob Wormald
 * [@ngrx/store in 10 minutes - egghead.io](https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes) - Brian Troncone
 
-###Articles
+### Articles
 * [Build a Better Angular 2 Application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/) - Lukas Ruebbelke
 * [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2/) - Wayne Maurer
 * [Understand and Utilize the Async Pipe in Angular 2](http://briantroncone.com/?p=623) - Brian Troncone
@@ -55,7 +55,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [ngrx-store-freeze - Prevent state from being mutated in @ngrx/store](https://github.com/codewareio/ngrx-store-freeze) - Attila Egyed
 
 
-##Getting Started
+## Getting Started
 ```bash
 # clone the repo
 git clone https://github.com/btroncone/ngrx-examples.git
@@ -73,17 +73,17 @@ npm install
 npm start
 ```
 
-##Build
+## Build
 
 Project builds are a stripped down version of [Angular Class Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter), an exceptional Angular 2 seed project. Tests can be executed with either [WallabyJS](http://wallabyjs.com/) or Karma (soon!).
 
-##Examples
+## Examples
 
 ### Counter
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/counter))
-#####Summary
+##### Summary
 A counter which can be incremented, decremented, with the option to increment or decrement async.
-#####Demonstrates
+##### Demonstrates
 1. Creating a basic reducer
 2. Selecting a slice of state 
 3. Using the async pipe
@@ -91,9 +91,9 @@ A counter which can be incremented, decremented, with the option to increment or
 
 ### Todos
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos))
-#####Summary
+##### Summary
 Basic todo application with add, remove, and toggle complete functionality. 
-#####Demonstrates
+##### Demonstrates
 1. Initial reducer state
 2. Managing arrays in reducers
 3. Multiple reducers
@@ -101,24 +101,24 @@ Basic todo application with add, remove, and toggle complete functionality.
 
 ### Todos with Undo/Redo
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos-undo-redo) | [plunker](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview))
-#####Summary
+##### Summary
 Same as todos example but with undo/redo functionality.
-#####Demonstrates
+##### Demonstrates
 1. Creating a meta-reducer to add undo/redo capability.
 
 ### Async 
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
-#####Summary
+##### Summary
 Request and display the latest Angular or React reddit posts, utilizing the reddit API.
-#####Demonstrates
+##### Demonstrates
 1. Handling async actions with @ngrx/effects
 2. Conditionally making requests based on current state
 
 ### Shopping Cart 
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))
-#####Summary
+##### Summary
 Request sample inventory, add and remove items from shopping cart, checkout.
-#####Demonstrates
+##### Demonstrates
 1. Multiple Reducers
 2. Handling effects with @ngrx/effects
 3. Creating and applying selectors for state projection with `let`
@@ -127,9 +127,9 @@ Request sample inventory, add and remove items from shopping cart, checkout.
 ### Finances
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/finances))
 ([tutorial](https://www.pluralsight.com/guides/front-end-javascript/building-a-redux-application-with-angular-2-part-1))
-#####Summary
+##### Summary
 Add and remove items financial operations, change currency rates
-#####Demonstrates
+##### Demonstrates
 1. Multiple Reducers
 2. Handling effects with @ngrx/effects
 3. Modifying state projection

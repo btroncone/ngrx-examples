@@ -44,6 +44,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 
 ### Repositories and Code Samples
 * [Official ngrx example application](https://github.com/ngrx/example-app) - Mike Ryan
+* [Echo Media Player - Media Player for YouTube](http://github.com/orizens/echoes-ng2) - Oren Fahri
 * [Staffer ngrx/store example](https://github.com/sapientglobalmarkets/staffer/tree/master/staffer-ng2-ngrxstore) -Pavan Podila
 * [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 * [NgRx Example](https://github.com/fxck/ngrx-example) - Aleš

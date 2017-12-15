@@ -1,6 +1,6 @@
 # @ngrx examples
 
-[Angular 2](https://angular.io/) + [ngrx](https://github.com/ngrx) examples, inspired by official [redux examples](https://github.com/rackt/redux/tree/master/examples).
+[Angular 2](https://angular.io/) + [ngrx](https://github.com/ngrx) examples, inspired by official [redux examples](https://github.com/reactjs/redux/tree/master/examples).
 
 ## Goal
 
@@ -49,6 +49,7 @@ Additional Angular 2, ngrx, and reactive programming articles, repositories, and
 * [Angular 2 Time Machine](https://gist.run/?id=da0af799da468b7ca70e) - John Lindquist
 * [NgRx Example](https://github.com/fxck/ngrx-example) - Aleš
 * [Todo with Undo/Redo](http://plnkr.co/edit/UnU1wnFcausVFfEP2RGD?p=preview) - Rob Wormald
+* [Instagram Filters - Instagram-like photo filter playground](https://github.com/JayKan/angular2-instagram) - Jay Kan
 
 ### Utilities
 * [ngrx-store-localstorage - Sync local storage with ngrx state slices](https://github.com/btroncone/ngrx-store-localstorage) - Brian Troncone
@@ -86,14 +87,14 @@ Project builds are a stripped down version of [Angular Class Webpack Starter](ht
 A counter which can be incremented, decremented, with the option to increment or decrement async.
 ##### Demonstrates
 1. Creating a basic reducer
-2. Selecting a slice of state 
+2. Selecting a slice of state
 3. Using the async pipe
 4. Dispatching actions from a component
 
 ### Todos
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/todos))
 ##### Summary
-Basic todo application with add, remove, and toggle complete functionality. 
+Basic todo application with add, remove, and toggle complete functionality.
 ##### Demonstrates
 1. Initial reducer state
 2. Managing arrays in reducers
@@ -107,7 +108,7 @@ Same as todos example but with undo/redo functionality.
 ##### Demonstrates
 1. Creating a meta-reducer to add undo/redo capability.
 
-### Async 
+### Async
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/async))
 ##### Summary
 Request and display the latest Angular or React reddit posts, utilizing the reddit API.
@@ -115,7 +116,7 @@ Request and display the latest Angular or React reddit posts, utilizing the redd
 1. Handling async actions with @ngrx/effects
 2. Conditionally making requests based on current state
 
-### Shopping Cart 
+### Shopping Cart
 ([source](https://github.com/btroncone/ngrx-examples/tree/master/shopping-cart))
 ##### Summary
 Request sample inventory, add and remove items from shopping cart, checkout.
